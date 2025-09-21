@@ -3,9 +3,11 @@ import { Canvas } from '@react-three/fiber'
 import Experience from './components/Experience'
 import UI from './components/UI/HUD'
 import ControlToggle from './components/UI/ControlToggle'
+import CollisionToggle from './components/UI/CollisionToggle'
 
 function App() {
   const [controlMode, setControlMode] = useState('orbit')
+  const [collisionEnabled, setCollisionEnabled] = useState(true)
 
   return (
     <>
@@ -17,11 +19,21 @@ function App() {
         shadows
       >
         <Suspense fallback={null}>
-          <Experience controlMode={controlMode} setControlMode={setControlMode} />
+          <Experience 
+            controlMode={controlMode} 
+            setControlMode={setControlMode}
+            collisionEnabled={collisionEnabled}
+          />
         </Suspense>
       </Canvas>
-      <UI controlMode={controlMode} />
+      <UI controlMode={controlMode} collisionEnabled={collisionEnabled} />
       <ControlToggle controlMode={controlMode} setControlMode={setControlMode} />
+      {controlMode === 'walk' && (
+        <CollisionToggle 
+          collisionEnabled={collisionEnabled} 
+          setCollisionEnabled={setCollisionEnabled} 
+        />
+      )}
     </>
   )
 }

@@ -3,7 +3,7 @@ import { useFrame, useThree } from '@react-three/fiber'
 import { useKeyboardControls } from '@react-three/drei'
 import * as THREE from 'three'
 
-export default function WalkControls() {
+export default function WalkControls({ collisionEnabled = true }) {
   const { camera } = useThree()
   const [, get] = useKeyboardControls()
   
@@ -20,7 +20,15 @@ export default function WalkControls() {
   }, [camera])
 
   useFrame((state, delta) => {
-    const { forward, backward, leftward, rightward, jump, run } = get()
+    const { forward, backward, leftward, rightward, jump, run, rotateLeft, rotateRight } = get()
+    
+    // Handle rotation
+    if (rotateLeft) {
+      camera.rotation.y += 2 * delta // rotate left
+    }
+    if (rotateRight) {
+      camera.rotation.y -= 2 * delta // rotate right
+    }
     
     // Calculate movement vectors
     frontVector.current.set(0, 0, Number(backward) - Number(forward))
@@ -58,14 +66,16 @@ export default function WalkControls() {
     }
     
     // Wall collision detection (keep inside house bounds)
-    const bounds = 3.5 // slightly inside the house walls
-    camera.position.x = Math.max(-bounds, Math.min(bounds, camera.position.x))
-    camera.position.z = Math.max(-2.5, Math.min(2.5, camera.position.z))
-    
-    // Prevent going through the door when it's closed (optional)
-    if (camera.position.z > 2.5 && Math.abs(camera.position.x) < 0.5) {
-      // Allow exit through door opening
-      camera.position.z = Math.min(camera.position.z, 4)
+    if (collisionEnabled) {
+      const bounds = 3.5 // slightly inside the house walls
+      camera.position.x = Math.max(-bounds, Math.min(bounds, camera.position.x))
+      camera.position.z = Math.max(-2.5, Math.min(2.5, camera.position.z))
+      
+      // Prevent going through the door when it's closed (optional)
+      if (camera.position.z > 2.5 && Math.abs(camera.position.x) < 0.5) {
+        // Allow exit through door opening
+        camera.position.z = Math.min(camera.position.z, 4)
+      }
     }
   })
 

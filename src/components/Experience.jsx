@@ -13,15 +13,17 @@ const keyboardMap = [
   { name: 'rightward', keys: ['ArrowRight', 'KeyD'] },
   { name: 'jump', keys: ['Space'] },
   { name: 'run', keys: ['Shift'] },
+  { name: 'rotateLeft', keys: ['KeyQ'] },
+  { name: 'rotateRight', keys: ['KeyE'] },
 ]
 
-export default function Experience({ controlMode, setControlMode }) {
+export default function Experience({ controlMode, setControlMode, collisionEnabled }) {
   return (
     <>
       {controlMode === 'walk' ? (
         <KeyboardControls map={keyboardMap}>
           <PointerLockControls />
-          <WalkControls />
+          <WalkControls collisionEnabled={collisionEnabled} />
         </KeyboardControls>
       ) : (
         <OrbitControls 
