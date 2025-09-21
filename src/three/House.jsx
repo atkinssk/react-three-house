@@ -15,8 +15,8 @@ export default function House() {
   return (
     <group ref={houseRef} position={[0, 0, 0]}>
       {/* Ground/Base - Expanded garden */}
-      <Box 
-        args={[24, 0.2, 20]} 
+      <Box
+        args={[24, 0.2, 20]}
         position={[0, -0.1, 0]}
         castShadow
         receiveShadow
@@ -44,25 +44,27 @@ export default function House() {
         <meshStandardMaterial color="#8b4513" />
       </Cone>
 
-      {/* Door - opened at 45 degrees */}
-      <Box
-        args={[1, 2.2, 0.1]}
-        position={[-0.35, 1.1, 3.4]}
-        rotation={[0, Math.PI / 4, 0]}
-        castShadow
-      >
-        <meshStandardMaterial color="#654321" />
-      </Box>
+      {/* Door components */}
+      <group position={[0, 1.1, 3.05]} rotation={[0, Math.PI / 9, 0]}>
+        {/* Door - partly open */}
+        <Box
+          args={[1, 2.2, 0.1]}
+          position={[0, 0, 0]}
+          castShadow
+        >
+          <meshStandardMaterial color="#654321" />
+        </Box>
 
-      {/* Door handle */}
-      <Cylinder
-        args={[0.05, 0.05, 0.1]}
-        position={[-0.65, 1.1, 3.65]}
-        rotation={[Math.PI / 2, Math.PI / 4, 0]}
-        castShadow
-      >
-        <meshStandardMaterial color="#ffd700" />
-      </Cylinder>
+        {/* Door handle */}
+        <Cylinder
+          args={[0.05, 0.05, 0.1]}
+          position={[-0.4, 0, 0.1]}
+          rotation={[0, 0, Math.PI / 2]}
+          castShadow
+        >
+          <meshStandardMaterial color="#ffd700" />
+        </Cylinder>
+      </group>
 
       {/* Front windows - First floor */}
       {/* Left window frame */}
@@ -350,30 +352,30 @@ export default function House() {
       </Box>
 
       {/* Trees around the house - Front yard */}
-      <Cylinder 
-        args={[0.25, 0.25, 2.5]} 
+      <Cylinder
+        args={[0.25, 0.25, 2.5]}
         position={[-7, 1.25, 6]}
         castShadow
       >
         <meshStandardMaterial color="#8b4513" />
       </Cylinder>
-      <Cone 
-        args={[1.2, 2.5, 8]} 
+      <Cone
+        args={[1.2, 2.5, 8]}
         position={[-7, 3.75, 6]}
         castShadow
       >
         <meshStandardMaterial color="#228b22" />
       </Cone>
 
-      <Cylinder 
-        args={[0.2, 0.2, 2]} 
+      <Cylinder
+        args={[0.2, 0.2, 2]}
         position={[7, 1, 6]}
         castShadow
       >
         <meshStandardMaterial color="#8b4513" />
       </Cylinder>
-      <Cone 
-        args={[1, 2, 8]} 
+      <Cone
+        args={[1, 2, 8]}
         position={[7, 3, 6]}
         castShadow
       >
@@ -381,45 +383,45 @@ export default function House() {
       </Cone>
 
       {/* Back yard trees */}
-      <Cylinder 
-        args={[0.3, 0.3, 3]} 
+      <Cylinder
+        args={[0.3, 0.3, 3]}
         position={[-6, 1.5, -7]}
         castShadow
       >
         <meshStandardMaterial color="#8b4513" />
       </Cylinder>
-      <Cone 
-        args={[1.5, 3, 8]} 
+      <Cone
+        args={[1.5, 3, 8]}
         position={[-6, 4.5, -7]}
         castShadow
       >
         <meshStandardMaterial color="#228b22" />
       </Cone>
 
-      <Cylinder 
-        args={[0.25, 0.25, 2.5]} 
+      <Cylinder
+        args={[0.25, 0.25, 2.5]}
         position={[6, 1.25, -7]}
         castShadow
       >
         <meshStandardMaterial color="#8b4513" />
       </Cylinder>
-      <Cone 
-        args={[1.2, 2.5, 8]} 
+      <Cone
+        args={[1.2, 2.5, 8]}
         position={[6, 3.75, -7]}
         castShadow
       >
         <meshStandardMaterial color="#228b22" />
       </Cone>
 
-      <Cylinder 
-        args={[0.2, 0.2, 2]} 
+      <Cylinder
+        args={[0.2, 0.2, 2]}
         position={[0, 1, -8]}
         castShadow
       >
         <meshStandardMaterial color="#8b4513" />
       </Cylinder>
-      <Cone 
-        args={[1, 2, 8]} 
+      <Cone
+        args={[1, 2, 8]}
         position={[0, 3, -8]}
         castShadow
       >
@@ -427,60 +429,60 @@ export default function House() {
       </Cone>
 
       {/* Side yard trees */}
-      <Cylinder 
-        args={[0.2, 0.2, 2]} 
+      <Cylinder
+        args={[0.2, 0.2, 2]}
         position={[-9, 1, 2]}
         castShadow
       >
         <meshStandardMaterial color="#8b4513" />
       </Cylinder>
-      <Cone 
-        args={[1, 2, 8]} 
+      <Cone
+        args={[1, 2, 8]}
         position={[-9, 3, 2]}
         castShadow
       >
         <meshStandardMaterial color="#228b22" />
       </Cone>
 
-      <Cylinder 
-        args={[0.25, 0.25, 2.5]} 
+      <Cylinder
+        args={[0.25, 0.25, 2.5]}
         position={[-9, 1.25, -2]}
         castShadow
       >
         <meshStandardMaterial color="#8b4513" />
       </Cylinder>
-      <Cone 
-        args={[1.2, 2.5, 8]} 
+      <Cone
+        args={[1.2, 2.5, 8]}
         position={[-9, 3.75, -2]}
         castShadow
       >
         <meshStandardMaterial color="#228b22" />
       </Cone>
 
-      <Cylinder 
-        args={[0.2, 0.2, 2]} 
+      <Cylinder
+        args={[0.2, 0.2, 2]}
         position={[9, 1, 2]}
         castShadow
       >
         <meshStandardMaterial color="#8b4513" />
       </Cylinder>
-      <Cone 
-        args={[1, 2, 8]} 
+      <Cone
+        args={[1, 2, 8]}
         position={[9, 3, 2]}
         castShadow
       >
         <meshStandardMaterial color="#228b22" />
       </Cone>
 
-      <Cylinder 
-        args={[0.25, 0.25, 2.5]} 
+      <Cylinder
+        args={[0.25, 0.25, 2.5]}
         position={[9, 1.25, -2]}
         castShadow
       >
         <meshStandardMaterial color="#8b4513" />
       </Cylinder>
-      <Cone 
-        args={[1.2, 2.5, 8]} 
+      <Cone
+        args={[1.2, 2.5, 8]}
         position={[9, 3.75, -2]}
         castShadow
       >
@@ -488,60 +490,60 @@ export default function House() {
       </Cone>
 
       {/* Corner trees for depth */}
-      <Cylinder 
-        args={[0.3, 0.3, 3]} 
+      <Cylinder
+        args={[0.3, 0.3, 3]}
         position={[-10, 1.5, 8]}
         castShadow
       >
         <meshStandardMaterial color="#8b4513" />
       </Cylinder>
-      <Cone 
-        args={[1.5, 3, 8]} 
+      <Cone
+        args={[1.5, 3, 8]}
         position={[-10, 4.5, 8]}
         castShadow
       >
         <meshStandardMaterial color="#228b22" />
       </Cone>
 
-      <Cylinder 
-        args={[0.3, 0.3, 3]} 
+      <Cylinder
+        args={[0.3, 0.3, 3]}
         position={[10, 1.5, 8]}
         castShadow
       >
         <meshStandardMaterial color="#8b4513" />
       </Cylinder>
-      <Cone 
-        args={[1.5, 3, 8]} 
+      <Cone
+        args={[1.5, 3, 8]}
         position={[10, 4.5, 8]}
         castShadow
       >
         <meshStandardMaterial color="#228b22" />
       </Cone>
 
-      <Cylinder 
-        args={[0.25, 0.25, 2.5]} 
+      <Cylinder
+        args={[0.25, 0.25, 2.5]}
         position={[-10, 1.25, -8]}
         castShadow
       >
         <meshStandardMaterial color="#8b4513" />
       </Cylinder>
-      <Cone 
-        args={[1.2, 2.5, 8]} 
+      <Cone
+        args={[1.2, 2.5, 8]}
         position={[-10, 3.75, -8]}
         castShadow
       >
         <meshStandardMaterial color="#228b22" />
       </Cone>
 
-      <Cylinder 
-        args={[0.25, 0.25, 2.5]} 
+      <Cylinder
+        args={[0.25, 0.25, 2.5]}
         position={[10, 1.25, -8]}
         castShadow
       >
         <meshStandardMaterial color="#8b4513" />
       </Cylinder>
-      <Cone 
-        args={[1.2, 2.5, 8]} 
+      <Cone
+        args={[1.2, 2.5, 8]}
         position={[10, 3.75, -8]}
         castShadow
       >
