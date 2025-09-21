@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Box, Cone, Cylinder } from '@react-three/drei'
+import { Subtraction, Addition, Base } from '@react-three/csg'
 
 export default function House() {
   const houseRef = useRef()
