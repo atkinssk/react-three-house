@@ -24,10 +24,41 @@ export default function House() {
         <meshStandardMaterial color="#4a5d23" />
       </Box>
 
-      {/* Main house structure - solid walls */}
+      {/* House walls - individual wall sections with proper corner alignment */}
+      {/* Front wall */}
       <Box
-        args={[8, 4, 6]}
-        position={[0, 2, 0]}
+        args={[7.6, 4, 0.2]}
+        position={[0, 2, 2.9]}
+        castShadow
+        receiveShadow
+      >
+        <meshStandardMaterial color="#d4a574" />
+      </Box>
+
+      {/* Back wall */}
+      <Box
+        args={[7.6, 4, 0.2]}
+        position={[0, 2, -2.9]}
+        castShadow
+        receiveShadow
+      >
+        <meshStandardMaterial color="#d4a574" />
+      </Box>
+
+      {/* Left wall */}
+      <Box
+        args={[0.2, 4, 6]}
+        position={[-3.9, 2, 0]}
+        castShadow
+        receiveShadow
+      >
+        <meshStandardMaterial color="#d4a574" />
+      </Box>
+
+      {/* Right wall */}
+      <Box
+        args={[0.2, 4, 6]}
+        position={[3.9, 2, 0]}
         castShadow
         receiveShadow
       >
