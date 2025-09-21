@@ -1,7 +1,6 @@
 import React, { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Box, Cone, Cylinder } from '@react-three/drei'
-import { Subtraction, Addition, Base } from '@react-three/csg'
 
 export default function House() {
   const houseRef = useRef()
@@ -25,7 +24,7 @@ export default function House() {
         <meshStandardMaterial color="#4a5d23" />
       </Box>
 
-      {/* Main house structure */}
+      {/* Main house structure - solid walls (windows will appear to be inset with frames) */}
       <Box
         args={[8, 4, 6]}
         position={[0, 2, 0]}
@@ -33,6 +32,15 @@ export default function House() {
         receiveShadow
       >
         <meshStandardMaterial color="#d4a574" />
+      </Box>
+
+      {/* Interior floor */}
+      <Box
+        args={[7.6, 0.2, 5.6]}
+        position={[0, 0.1, 0]}
+        receiveShadow
+      >
+        <meshStandardMaterial color="#8b7355" />
       </Box>
 
       {/* Roof */}
