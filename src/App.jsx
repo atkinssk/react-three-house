@@ -19,8 +19,8 @@ function App() {
         shadows
       >
         <Suspense fallback={null}>
-          <Experience 
-            controlMode={controlMode} 
+          <Experience
+            controlMode={controlMode}
             setControlMode={setControlMode}
             collisionEnabled={collisionEnabled}
           />
@@ -29,9 +29,9 @@ function App() {
       <UI controlMode={controlMode} collisionEnabled={collisionEnabled} />
       <ControlToggle controlMode={controlMode} setControlMode={setControlMode} />
       {controlMode === 'walk' && (
-        <CollisionToggle 
-          collisionEnabled={collisionEnabled} 
-          setCollisionEnabled={setCollisionEnabled} 
+        <CollisionToggle
+          collisionEnabled={collisionEnabled}
+          setCollisionEnabled={setCollisionEnabled}
         />
       )}
     </>

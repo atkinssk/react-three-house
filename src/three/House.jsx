@@ -24,7 +24,7 @@ export default function House() {
         <meshStandardMaterial color="#4a5d23" />
       </Box>
 
-      {/* Main house structure - solid walls (windows will appear to be inset with frames) */}
+      {/* Main house structure - solid walls */}
       <Box
         args={[8, 4, 6]}
         position={[0, 2, 0]}
