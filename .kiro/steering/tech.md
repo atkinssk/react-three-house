@@ -18,6 +18,7 @@
 ## Key Dependencies
 - **@react-three/fiber ^9.3.0**: React renderer for Three.js
 - **@react-three/drei ^10.7.6**: Collection of useful helpers and abstractions
+- **@react-three/csg ^4.0.0**: Constructive Solid Geometry for complex 3D operations
 - **three ^0.180.0**: Core Three.js library
 - **@types/react ^19.1.13**: TypeScript definitions for React 19
 - **@types/react-dom ^19.1.9**: TypeScript definitions for React DOM 19
@@ -52,6 +53,31 @@ npm run type-check
 - **React Three Fiber 9.x**: Full React 19 compatibility and new features
 - **Drei 10.x**: Latest helpers with React 19 support and new components
 - **Vite 7.x**: Fastest build performance with improved HMR
+
+## Constructive Solid Geometry (CSG)
+- **@react-three/csg**: Enables boolean operations on 3D meshes
+- **Union**: Combine multiple geometries into one
+- **Subtraction**: Cut holes or remove parts from geometries
+- **Intersection**: Keep only overlapping parts of geometries
+- **Base, Addition, Subtraction components**: React components for CSG operations
+- **Geometry**: Component for creating complex shapes through boolean operations
+
+```jsx
+import { Geometry, Base, Addition, Subtraction } from '@react-three/csg'
+
+// Example CSG usage for house construction
+<Geometry>
+  <Base>
+    <boxGeometry args={[4, 3, 4]} />
+  </Base>
+  <Addition>
+    <cylinderGeometry args={[1, 1, 3]} />
+  </Addition>
+  <Subtraction>
+    <boxGeometry args={[1, 2, 0.5]} />
+  </Subtraction>
+</Geometry>
+```
 
 ## Asset Pipeline
 - **GLTF/GLB**: Preferred 3D model format
