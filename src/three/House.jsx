@@ -1,6 +1,7 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Box, Cone, Cylinder } from '@react-three/drei'
+import Window from '../components/Window'
 
 export default function House() {
   const houseRef = useRef()
@@ -106,290 +107,29 @@ export default function House() {
         </Cylinder>
       </group>
 
-      {/* Front windows - First floor */}
-      {/* Left window frame */}
-      <Box
-        args={[1.4, 1.4, 0.15]}
-        position={[-2.5, 1.5, 3.02]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b7355" />
-      </Box>
-      <Box
-        args={[1.2, 1.2, 0.1]}
-        position={[-2.5, 1.5, 3.05]}
-        castShadow
-      >
-        <meshStandardMaterial
-          color="#ffffff"
-          transparent={true}
-          opacity={0.05}
-        />
-      </Box>
-
-      {/* Right window frame */}
-      <Box
-        args={[1.4, 1.4, 0.15]}
-        position={[2.5, 1.5, 3.02]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b7355" />
-      </Box>
-      <Box
-        args={[1.2, 1.2, 0.1]}
-        position={[2.5, 1.5, 3.05]}
-        castShadow
-      >
-        <meshStandardMaterial
-          color="#ffffff"
-          transparent={true}
-          opacity={0.05}
-        />
-      </Box>
+      {/* Front windows */}
+      <Window position={[-2.5, 1.5, 3.02]} orientation="front" />
+      <Window position={[2.5, 1.5, 3.02]} orientation="front" />
 
       {/* Front windows - Second floor */}
-      {/* Left second floor window frame */}
-      <Box
-        args={[1.4, 1.4, 0.15]}
-        position={[-2.5, 3.2, 3.02]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b7355" />
-      </Box>
-      <Box
-        args={[1.2, 1.2, 0.1]}
-        position={[-2.5, 3.2, 3.05]}
-        castShadow
-      >
-        <meshStandardMaterial
-          color="#ffffff"
-          transparent={true}
-          opacity={0.05}
-        />
-      </Box>
-
-      {/* Center second floor window frame */}
-      <Box
-        args={[1.4, 1.4, 0.15]}
-        position={[0, 3.2, 3.02]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b7355" />
-      </Box>
-      <Box
-        args={[1.2, 1.2, 0.1]}
-        position={[0, 3.2, 3.05]}
-        castShadow
-      >
-        <meshStandardMaterial
-          color="#ffffff"
-          transparent={true}
-          opacity={0.05}
-        />
-      </Box>
-
-      {/* Right second floor window frame */}
-      <Box
-        args={[1.4, 1.4, 0.15]}
-        position={[2.5, 3.2, 3.02]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b7355" />
-      </Box>
-      <Box
-        args={[1.2, 1.2, 0.1]}
-        position={[2.5, 3.2, 3.05]}
-        castShadow
-      >
-        <meshStandardMaterial
-          color="#ffffff"
-          transparent={true}
-          opacity={0.05}
-        />
-      </Box>
+      <Window position={[-2.5, 3.2, 3.02]} orientation="front" />
+      <Window position={[0, 3.2, 3.02]} orientation="front" />
+      <Window position={[2.5, 3.2, 3.02]} orientation="front" />
 
       {/* Left side windows */}
-      {/* Left side window 1 frame */}
-      <Box
-        args={[0.15, 1.4, 1.4]}
-        position={[-4.02, 1.5, 1]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b7355" />
-      </Box>
-      <Box
-        args={[0.1, 1.2, 1.2]}
-        position={[-4.05, 1.5, 1]}
-        castShadow
-      >
-        <meshStandardMaterial
-          color="#ffffff"
-          transparent={true}
-          opacity={0.05}
-        />
-      </Box>
-
-      {/* Left side window 2 frame */}
-      <Box
-        args={[0.15, 1.4, 1.4]}
-        position={[-4.02, 1.5, -1]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b7355" />
-      </Box>
-      <Box
-        args={[0.1, 1.2, 1.2]}
-        position={[-4.05, 1.5, -1]}
-        castShadow
-      >
-        <meshStandardMaterial
-          color="#ffffff"
-          transparent={true}
-          opacity={0.05}
-        />
-      </Box>
-
-      {/* Left side second floor window frame */}
-      <Box
-        args={[0.15, 1.4, 1.4]}
-        position={[-4.02, 3.2, 0]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b7355" />
-      </Box>
-      <Box
-        args={[0.1, 1.2, 1.2]}
-        position={[-4.05, 3.2, 0]}
-        castShadow
-      >
-        <meshStandardMaterial
-          color="#ffffff"
-          transparent={true}
-          opacity={0.05}
-        />
-      </Box>
+      <Window position={[-4.02, 1.5, 1]} orientation="left" />
+      <Window position={[-4.02, 1.5, -1]} orientation="left" />
+      <Window position={[-4.02, 3.2, 0]} orientation="left" />
 
       {/* Right side windows */}
-      {/* Right side window 1 frame */}
-      <Box
-        args={[0.15, 1.4, 1.4]}
-        position={[4.02, 1.5, 1]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b7355" />
-      </Box>
-      <Box
-        args={[0.1, 1.2, 1.2]}
-        position={[4.05, 1.5, 1]}
-        castShadow
-      >
-        <meshStandardMaterial
-          color="#ffffff"
-          transparent={true}
-          opacity={0.05}
-        />
-      </Box>
-
-      {/* Right side window 2 frame */}
-      <Box
-        args={[0.15, 1.4, 1.4]}
-        position={[4.02, 1.5, -1]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b7355" />
-      </Box>
-      <Box
-        args={[0.1, 1.2, 1.2]}
-        position={[4.05, 1.5, -1]}
-        castShadow
-      >
-        <meshStandardMaterial
-          color="#ffffff"
-          transparent={true}
-          opacity={0.05}
-        />
-      </Box>
-
-      {/* Right side second floor window frame */}
-      <Box
-        args={[0.15, 1.4, 1.4]}
-        position={[4.02, 3.2, 0]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b7355" />
-      </Box>
-      <Box
-        args={[0.1, 1.2, 1.2]}
-        position={[4.05, 3.2, 0]}
-        castShadow
-      >
-        <meshStandardMaterial
-          color="#ffffff"
-          transparent={true}
-          opacity={0.05}
-        />
-      </Box>
+      <Window position={[4.02, 1.5, 1]} orientation="right" />
+      <Window position={[4.02, 1.5, -1]} orientation="right" />
+      <Window position={[4.02, 3.2, 0]} orientation="right" />
 
       {/* Back windows */}
-      {/* Back left window frame */}
-      <Box
-        args={[1.4, 1.4, 0.15]}
-        position={[-2, 1.5, -3.02]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b7355" />
-      </Box>
-      <Box
-        args={[1.2, 1.2, 0.1]}
-        position={[-2, 1.5, -3.05]}
-        castShadow
-      >
-        <meshStandardMaterial
-          color="#ffffff"
-          transparent={true}
-          opacity={0.05}
-        />
-      </Box>
-
-      {/* Back right window frame */}
-      <Box
-        args={[1.4, 1.4, 0.15]}
-        position={[2, 1.5, -3.02]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b7355" />
-      </Box>
-      <Box
-        args={[1.2, 1.2, 0.1]}
-        position={[2, 1.5, -3.05]}
-        castShadow
-      >
-        <meshStandardMaterial
-          color="#ffffff"
-          transparent={true}
-          opacity={0.05}
-        />
-      </Box>
-
-      {/* Back second floor window frame */}
-      <Box
-        args={[1.4, 1.4, 0.15]}
-        position={[0, 3.2, -3.02]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b7355" />
-      </Box>
-      <Box
-        args={[1.2, 1.2, 0.1]}
-        position={[0, 3.2, -3.05]}
-        castShadow
-      >
-        <meshStandardMaterial
-          color="#ffffff"
-          transparent={true}
-          opacity={0.05}
-        />
-      </Box>
+      <Window position={[-2, 1.5, -3.02]} orientation="back" />
+      <Window position={[2, 1.5, -3.02]} orientation="back" />
+      <Window position={[0, 3.2, -3.02]} orientation="back" />
 
       {/* Trees around the house - Front yard */}
       <Cylinder
