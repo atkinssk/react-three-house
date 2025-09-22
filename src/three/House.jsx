@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Box, Cone, Cylinder } from '@react-three/drei'
 import Window from '../components/Window'
+import Door from '../components/Door'
 
 export default function House() {
   const houseRef = useRef()
@@ -85,27 +86,8 @@ export default function House() {
         <meshStandardMaterial color="#8b4513" />
       </Cone>
 
-      {/* Door components */}
-      <group position={[0, 1.1, 3.05]} rotation={[0, Math.PI / 9, 0]}>
-        {/* Door - partly open */}
-        <Box
-          args={[1, 2.2, 0.1]}
-          position={[0, 0, 0]}
-          castShadow
-        >
-          <meshStandardMaterial color="#654321" />
-        </Box>
-
-        {/* Door handle */}
-        <Cylinder
-          args={[0.05, 0.05, 0.1]}
-          position={[-0.4, 0, 0.1]}
-          rotation={[0, 0, Math.PI / 2]}
-          castShadow
-        >
-          <meshStandardMaterial color="#ffd700" />
-        </Cylinder>
-      </group>
+      {/* Door */}
+      <Door />
 
       {/* Front windows */}
       <Window position={[-2.5, 1.5, 3.02]} orientation="front" />
