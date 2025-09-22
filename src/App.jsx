@@ -4,6 +4,7 @@ import Experience from './components/Experience'
 import UI from './components/UI/HUD'
 import ControlToggle from './components/UI/ControlToggle'
 import CollisionToggle from './components/UI/CollisionToggle'
+import TouchControls from './components/UI/TouchControls'
 
 function App() {
   const [controlMode, setControlMode] = useState('orbit')
@@ -34,6 +35,7 @@ function App() {
           setCollisionEnabled={setCollisionEnabled}
         />
       )}
+      <TouchControls controlMode={controlMode} />
     </>
   )
 }
