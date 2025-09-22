@@ -1,25 +1,26 @@
 # Technology Stack
 
 ## Core Technologies
-- **React**: Component-based UI framework
-- **React Three Fiber**: React renderer for Three.js
-- **Three.js**: 3D graphics library for WebGL rendering
-- **@react-three/drei**: Useful helpers for React Three Fiber
-- **@react-three/cannon**: Physics integration (optional)
+- **React 19.1.1**: Component-based UI framework with latest concurrent features
+- **React Three Fiber 9.3.0**: React renderer for Three.js with React 19 support
+- **Three.js 0.180.0**: 3D graphics library for WebGL rendering (latest stable)
+- **@react-three/drei 10.7.6**: Useful helpers for React Three Fiber
+- **@react-three/csg 4.0.0**: Constructive Solid Geometry operations
 - **TypeScript**: Type-safe JavaScript development
 - **WebGL**: Hardware-accelerated 3D graphics
 
 ## Build System
-- **Vite**: Fast build tool and dev server (recommended)
-- **Create React App**: Alternative React setup
+- **Vite 7.1.7**: Fast build tool and dev server with improved performance
+- **@vitejs/plugin-react 5.0.3**: React plugin for Vite with React 19 support
 - **npm/yarn/pnpm**: Package management
 - **ES6 Modules**: Module system
 
 ## Key Dependencies
-- **@react-three/fiber**: React renderer for Three.js
-- **@react-three/drei**: Collection of useful helpers
-- **three**: Core Three.js library
-- **@types/three**: TypeScript definitions
+- **@react-three/fiber ^9.3.0**: React renderer for Three.js
+- **@react-three/drei ^10.7.6**: Collection of useful helpers and abstractions
+- **three ^0.180.0**: Core Three.js library
+- **@types/react ^19.1.13**: TypeScript definitions for React 19
+- **@types/react-dom ^19.1.9**: TypeScript definitions for React DOM 19
 - **leva**: React-based GUI controls (replaces dat.gui)
 
 ## Common Commands
@@ -44,6 +45,13 @@ npm test
 # Type checking (if using TypeScript)
 npm run type-check
 ```
+
+## Version Compatibility
+- **React 19**: Latest stable with improved concurrent features and automatic batching
+- **Three.js 0.180**: Latest stable with WebGPU support and performance improvements
+- **React Three Fiber 9.x**: Full React 19 compatibility and new features
+- **Drei 10.x**: Latest helpers with React 19 support and new components
+- **Vite 7.x**: Fastest build performance with improved HMR
 
 ## Asset Pipeline
 - **GLTF/GLB**: Preferred 3D model format
