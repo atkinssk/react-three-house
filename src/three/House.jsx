@@ -34,26 +34,29 @@ export default function House() {
           <Base>
             <boxGeometry args={[7.6, 4, 0.2]} />
           </Base>
+
           {/* Door opening */}
-          <Subtraction position={[0, -0.5, 0]}>
-            <boxGeometry args={[1.2, 3, 0.3]} />
+          <Subtraction position={[0, -0.9, 0]}>
+            <boxGeometry args={[1.2, 2.2, 0.3]} />
           </Subtraction>
+
           {/* Ground floor windows */}
           <Subtraction position={[-2.5, -0.5, 0]}>
-            <boxGeometry args={[1.2, 1.5, 0.3]} />
+            <boxGeometry args={[1.4, 1.4, 0.3]} />
           </Subtraction>
           <Subtraction position={[2.5, -0.5, 0]}>
-            <boxGeometry args={[1.2, 1.5, 0.3]} />
+            <boxGeometry args={[1.4, 1.4, 0.3]} />
           </Subtraction>
+
           {/* Second floor windows */}
           <Subtraction position={[-2.5, 1.2, 0]}>
-            <boxGeometry args={[1.2, 1.5, 0.3]} />
+            <boxGeometry args={[1.4, 1.4, 0.3]} />
           </Subtraction>
           <Subtraction position={[0, 1.2, 0]}>
-            <boxGeometry args={[1.2, 1.5, 0.3]} />
+            <boxGeometry args={[1.4, 1.4, 0.3]} />
           </Subtraction>
           <Subtraction position={[2.5, 1.2, 0]}>
-            <boxGeometry args={[1.2, 1.5, 0.3]} />
+            <boxGeometry args={[1.4, 1.4, 0.3]} />
           </Subtraction>
         </Geometry>
         <meshStandardMaterial color="#d4a574" />
@@ -67,14 +70,14 @@ export default function House() {
           </Base>
           {/* Ground floor windows */}
           <Subtraction position={[-2, -0.5, 0]}>
-            <boxGeometry args={[1.2, 1.5, 0.3]} />
+            <boxGeometry args={[1.4, 1.4, 0.3]} />
           </Subtraction>
           <Subtraction position={[2, -0.5, 0]}>
-            <boxGeometry args={[1.2, 1.5, 0.3]} />
+            <boxGeometry args={[1.4, 1.4, 0.3]} />
           </Subtraction>
           {/* Second floor window */}
           <Subtraction position={[0, 1.2, 0]}>
-            <boxGeometry args={[1.2, 1.5, 0.3]} />
+            <boxGeometry args={[1.4, 1.4, 0.3]} />
           </Subtraction>
         </Geometry>
         <meshStandardMaterial color="#d4a574" />
@@ -88,14 +91,14 @@ export default function House() {
           </Base>
           {/* Ground floor windows */}
           <Subtraction position={[0, -0.5, 1]}>
-            <boxGeometry args={[0.3, 1.5, 1.2]} />
+            <boxGeometry args={[0.3, 1.4, 1.4]} />
           </Subtraction>
           <Subtraction position={[0, -0.5, -1]}>
-            <boxGeometry args={[0.3, 1.5, 1.2]} />
+            <boxGeometry args={[0.3, 1.4, 1.4]} />
           </Subtraction>
           {/* Second floor window */}
           <Subtraction position={[0, 1.2, 0]}>
-            <boxGeometry args={[0.3, 1.5, 1.2]} />
+            <boxGeometry args={[0.3, 1.4, 1.4]} />
           </Subtraction>
         </Geometry>
         <meshStandardMaterial color="#d4a574" />
@@ -109,14 +112,14 @@ export default function House() {
           </Base>
           {/* Ground floor windows */}
           <Subtraction position={[0, -0.5, 1]}>
-            <boxGeometry args={[0.3, 1.5, 1.2]} />
+            <boxGeometry args={[0.3, 1.4, 1.4]} />
           </Subtraction>
           <Subtraction position={[0, -0.5, -1]}>
-            <boxGeometry args={[0.3, 1.5, 1.2]} />
+            <boxGeometry args={[0.3, 1.4, 1.4]} />
           </Subtraction>
           {/* Second floor window */}
           <Subtraction position={[0, 1.2, 0]}>
-            <boxGeometry args={[0.3, 1.5, 1.2]} />
+            <boxGeometry args={[0.3, 1.4, 1.4]} />
           </Subtraction>
         </Geometry>
         <meshStandardMaterial color="#d4a574" />

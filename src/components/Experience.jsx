@@ -5,6 +5,7 @@ import Lights from '../three/Lights'
 import Environment from '../three/Environment'
 import WalkControls from '../three/WalkControls'
 import ControlToggle from '../components/UI/ControlToggle'
+import { AxesHelper } from 'three'
 
 const keyboardMap = [
   { name: 'forward', keys: ['ArrowUp', 'KeyW'] },
@@ -26,7 +27,7 @@ export default function Experience({ controlMode, setControlMode, collisionEnabl
           <WalkControls collisionEnabled={collisionEnabled} />
         </KeyboardControls>
       ) : (
-        <OrbitControls 
+        <OrbitControls
           enablePan={true}
           enableZoom={true}
           enableRotate={true}
@@ -34,10 +35,14 @@ export default function Experience({ controlMode, setControlMode, collisionEnabl
           maxDistance={50}
         />
       )}
-      
+
       <Lights />
       <Environment />
       <House />
+      <axesHelper args={[2]} position={[0, 1, 3.2]} />
+      <gridHelper args={[20, 20, 0xff0000, 'teal']} position={[0, 0.1, 0]} />
+
+
     </>
   )
 }

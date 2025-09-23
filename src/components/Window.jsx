@@ -13,7 +13,7 @@ export default function Window({
   const isVertical = orientation === 'left' || orientation === 'right'
 
   const frameArgs = isVertical ? [0.15, 1.4, 1.4] : [1.4, 1.4, 0.15]
-  const glassArgs = isVertical ? [0.1, 1.2, 1.2] : [1.2, 1.2, 0.1]
+  const glassArgs = isVertical ? [0.3, 1.2, 1.2] : [1.2, 1.2, 0.3]
 
   // Offset for glass position relative to frame
   const glassOffset = isVertical
@@ -33,7 +33,7 @@ export default function Window({
             <boxGeometry args={glassArgs} />
           </Subtraction>
           {/* Add mullion cutouts for cross pattern - smaller to preserve frame */}
-          <Subtraction position={glassOffset}>
+          <Subtraction positio n={glassOffset}>
             <boxGeometry args={isVertical ? [0.08, 1.1, 0.06] : [0.06, 1.1, 0.08]} />
           </Subtraction>
           <Subtraction position={glassOffset}>
