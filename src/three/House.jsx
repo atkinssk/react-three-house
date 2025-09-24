@@ -4,6 +4,7 @@ import { Box, Cone, Cylinder } from '@react-three/drei'
 import { Geometry, Base, Subtraction } from '@react-three/csg'
 import Window from '../components/Window'
 import Door from '../components/Door'
+import Table from '../components/Table'
 
 export default function House() {
   const houseRef = useRef()
@@ -145,45 +146,8 @@ export default function House() {
         <meshStandardMaterial color="#654321" />
       </Box>
 
-      {/* Table */}
-      <Box
-        args={[1.5, 0.1, 0.8]}
-        position={[1.5, 1, 0.5]}
-        castShadow
-        receiveShadow
-      >
-        <meshStandardMaterial color="#8b4513" />
-      </Box>
-
-      {/* Table legs */}
-      <Box
-        args={[0.1, 1, 0.1]}
-        position={[1, 0.5, 0.2]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b4513" />
-      </Box>
-      <Box
-        args={[0.1, 1, 0.1]}
-        position={[2, 0.5, 0.2]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b4513" />
-      </Box>
-      <Box
-        args={[0.1, 1, 0.1]}
-        position={[1, 0.5, 0.8]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b4513" />
-      </Box>
-      <Box
-        args={[0.1, 1, 0.1]}
-        position={[2, 0.5, 0.8]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b4513" />
-      </Box>
+      {/* Table (refactored into component) */}
+      <Table position={[1.5, 1, 0.5]} />
 
       {/* Chairs */}
       <Box
@@ -225,34 +189,6 @@ export default function House() {
         castShadow
       >
         <meshStandardMaterial color="#ff6b6b" />
-      </Box>
-
-      {/* Second floor interior */}
-      <Box
-        args={[7.4, 0.2, 5.4]}
-        position={[0, 4.1, 0]}
-        receiveShadow
-      >
-        <meshStandardMaterial color="#a0522d" />
-      </Box>
-
-      {/* Second floor furniture */}
-      <Box
-        args={[2, 0.6, 1.2]}
-        position={[-2, 4.5, 0]}
-        castShadow
-        receiveShadow
-      >
-        <meshStandardMaterial color="#4169e1" />
-      </Box>
-
-      <Box
-        args={[1, 1.2, 0.5]}
-        position={[2, 4.8, 1]}
-        castShadow
-        receiveShadow
-      >
-        <meshStandardMaterial color="#32cd32" />
       </Box>
 
       {/* Roof */}
