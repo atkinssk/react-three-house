@@ -5,6 +5,7 @@ import { Geometry, Base, Subtraction } from '@react-three/csg'
 import Window from '../components/Window'
 import Door from '../components/Door'
 import Table from '../components/Table'
+import Chair from '../components/Chair'
 
 export default function House() {
   const houseRef = useRef()
@@ -149,38 +150,9 @@ export default function House() {
       {/* Table (refactored into component) */}
       <Table position={[1.5, 1, 0.5]} />
 
-      {/* Chairs */}
-      <Box
-        args={[0.5, 0.1, 0.5]}
-        position={[0.5, 0.8, 0.5]}
-        castShadow
-        receiveShadow
-      >
-        <meshStandardMaterial color="#654321" />
-      </Box>
-      <Box
-        args={[0.5, 0.8, 0.1]}
-        position={[0.5, 1.2, 0.75]}
-        castShadow
-      >
-        <meshStandardMaterial color="#654321" />
-      </Box>
-
-      <Box
-        args={[0.5, 0.1, 0.5]}
-        position={[2.5, 0.8, 0.5]}
-        castShadow
-        receiveShadow
-      >
-        <meshStandardMaterial color="#654321" />
-      </Box>
-      <Box
-        args={[0.5, 0.8, 0.1]}
-        position={[2.5, 1.2, 0.75]}
-        castShadow
-      >
-        <meshStandardMaterial color="#654321" />
-      </Box>
+      {/* Chairs (refactored into component) */}
+      <Chair position={[0.5, 0.8, 0.5]} />
+      <Chair position={[2.5, 0.8, 0.5]} />
 
       {/* Interior back wall decoration */}
       <Box
