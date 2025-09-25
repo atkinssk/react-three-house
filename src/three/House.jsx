@@ -7,6 +7,7 @@ import Door from '../components/Door'
 import Table from '../components/Table'
 import Chair from '../components/Chair'
 import Tree from './Tree'
+import { Staircase } from '../components/Staircase'
 
 export default function House() {
   const houseRef = useRef()
@@ -139,30 +140,44 @@ export default function House() {
 
       {/* Interior elements to see through windows */}
       {/* Living room furniture */}
-      <Box
+      {/* <Box
         args={[2, 0.8, 1]}
         position={[-1.5, 0.6, 1]}
         castShadow
         receiveShadow
       >
         <meshStandardMaterial color="#654321" />
-      </Box>
+      </Box> */}
 
       {/* Table (refactored into component) */}
-      <Table position={[1.5, 1, 0.5]} />
+      <Table position={[2, 1, 0.5]} />
 
       {/* Chairs (refactored into component) */}
-      <Chair position={[0.5, 0.8, 0.5]} />
-      <Chair position={[2.5, 0.8, 0.5]} />
+      <Chair position={[1, 0.8, 0.5]} rotation={[0, - Math.PI / 2, 0]} />
+      <Chair position={[3, 0.8, 0.5]} rotation={[0, Math.PI / 2, 0]} />
 
       {/* Interior back wall decoration */}
-      <Box
+      {/* <Box
         args={[1, 1.5, 0.1]}
         position={[0, 2, -2.5]}
         castShadow
       >
         <meshStandardMaterial color="#ff6b6b" />
+      </Box> */}
+
+      <mesh position={[-1, 0, 0]}>
+        <Staircase />
+      </mesh>
+
+      {/* First floor */}
+      <Box
+        args={[7.6, 0.1, 2]}
+        position={[0, 2.4, -1.8]}
+        receiveShadow
+      >
+        <meshStandardMaterial color="#8b7355" />
       </Box>
+
 
       {/* Roof */}
       <Cone
@@ -221,6 +236,6 @@ export default function House() {
       <Tree position={[10, 0, 8]} trunkArgs={[0.3, 0.3, 3]} foliageArgs={[1.5, 3, 8]} />
       <Tree position={[-10, 0, -8]} trunkArgs={[0.25, 0.25, 2.5]} foliageArgs={[1.2, 2.5, 8]} />
       <Tree position={[10, 0, -8]} trunkArgs={[0.25, 0.25, 2.5]} foliageArgs={[1.2, 2.5, 8]} />
-    </group>
+    </group >
   )
 }
