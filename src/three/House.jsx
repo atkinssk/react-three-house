@@ -6,7 +6,7 @@ import Window from '../components/Window'
 import Door from '../components/Door'
 import Table from '../components/Table'
 import Chair from '../components/Chair'
-import Tree from './Tree'
+import Tree from '../components/Tree'
 import { Staircase } from '../components/Staircase'
 
 export default function House() {
