@@ -1,11 +1,12 @@
 import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
-import { Box, Cone, Cylinder } from '@react-three/drei'
+import { Box, Cone } from '@react-three/drei'
 import { Geometry, Base, Subtraction } from '@react-three/csg'
 import Window from '../components/Window'
 import Door from '../components/Door'
 import Table from '../components/Table'
 import Chair from '../components/Chair'
+import Tree from './Tree'
 
 export default function House() {
   const houseRef = useRef()
@@ -201,203 +202,25 @@ export default function House() {
       <Window position={[0, 3.2, -3.02]} orientation="back" />
 
       {/* Trees around the house - Front yard */}
-      <Cylinder
-        args={[0.25, 0.25, 2.5]}
-        position={[-7, 1.25, 6]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b4513" />
-      </Cylinder>
-      <Cone
-        args={[1.2, 2.5, 8]}
-        position={[-7, 3.75, 6]}
-        castShadow
-      >
-        <meshStandardMaterial color="#228b22" />
-      </Cone>
-
-      <Cylinder
-        args={[0.2, 0.2, 2]}
-        position={[7, 1, 6]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b4513" />
-      </Cylinder>
-      <Cone
-        args={[1, 2, 8]}
-        position={[7, 3, 6]}
-        castShadow
-      >
-        <meshStandardMaterial color="#228b22" />
-      </Cone>
+      <Tree position={[-7, 0, 6]} trunkArgs={[0.25, 0.25, 2.5]} foliageArgs={[1.2, 2.5, 8]} />
+      <Tree position={[7, 0, 6]} trunkArgs={[0.2, 0.2, 2]} foliageArgs={[1, 2, 8]} />
 
       {/* Back yard trees */}
-      <Cylinder
-        args={[0.3, 0.3, 3]}
-        position={[-6, 1.5, -7]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b4513" />
-      </Cylinder>
-      <Cone
-        args={[1.5, 3, 8]}
-        position={[-6, 4.5, -7]}
-        castShadow
-      >
-        <meshStandardMaterial color="#228b22" />
-      </Cone>
-
-      <Cylinder
-        args={[0.25, 0.25, 2.5]}
-        position={[6, 1.25, -7]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b4513" />
-      </Cylinder>
-      <Cone
-        args={[1.2, 2.5, 8]}
-        position={[6, 3.75, -7]}
-        castShadow
-      >
-        <meshStandardMaterial color="#228b22" />
-      </Cone>
-
-      <Cylinder
-        args={[0.2, 0.2, 2]}
-        position={[0, 1, -8]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b4513" />
-      </Cylinder>
-      <Cone
-        args={[1, 2, 8]}
-        position={[0, 3, -8]}
-        castShadow
-      >
-        <meshStandardMaterial color="#228b22" />
-      </Cone>
+      <Tree position={[-6, 0, -7]} trunkArgs={[0.3, 0.3, 3]} foliageArgs={[1.5, 3, 8]} />
+      <Tree position={[6, 0, -7]} trunkArgs={[0.25, 0.25, 2.5]} foliageArgs={[1.2, 2.5, 8]} />
+      <Tree position={[0, 0, -8]} trunkArgs={[0.2, 0.2, 2]} foliageArgs={[1, 2, 8]} />
 
       {/* Side yard trees */}
-      <Cylinder
-        args={[0.2, 0.2, 2]}
-        position={[-9, 1, 2]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b4513" />
-      </Cylinder>
-      <Cone
-        args={[1, 2, 8]}
-        position={[-9, 3, 2]}
-        castShadow
-      >
-        <meshStandardMaterial color="#228b22" />
-      </Cone>
-
-      <Cylinder
-        args={[0.25, 0.25, 2.5]}
-        position={[-9, 1.25, -2]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b4513" />
-      </Cylinder>
-      <Cone
-        args={[1.2, 2.5, 8]}
-        position={[-9, 3.75, -2]}
-        castShadow
-      >
-        <meshStandardMaterial color="#228b22" />
-      </Cone>
-
-      <Cylinder
-        args={[0.2, 0.2, 2]}
-        position={[9, 1, 2]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b4513" />
-      </Cylinder>
-      <Cone
-        args={[1, 2, 8]}
-        position={[9, 3, 2]}
-        castShadow
-      >
-        <meshStandardMaterial color="#228b22" />
-      </Cone>
-
-      <Cylinder
-        args={[0.25, 0.25, 2.5]}
-        position={[9, 1.25, -2]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b4513" />
-      </Cylinder>
-      <Cone
-        args={[1.2, 2.5, 8]}
-        position={[9, 3.75, -2]}
-        castShadow
-      >
-        <meshStandardMaterial color="#228b22" />
-      </Cone>
+      <Tree position={[-9, 0, 2]} trunkArgs={[0.2, 0.2, 2]} foliageArgs={[1, 2, 8]} />
+      <Tree position={[-9, 0, -2]} trunkArgs={[0.25, 0.25, 2.5]} foliageArgs={[1.2, 2.5, 8]} />
+      <Tree position={[9, 0, 2]} trunkArgs={[0.2, 0.2, 2]} foliageArgs={[1, 2, 8]} />
+      <Tree position={[9, 0, -2]} trunkArgs={[0.25, 0.25, 2.5]} foliageArgs={[1.2, 2.5, 8]} />
 
       {/* Corner trees for depth */}
-      <Cylinder
-        args={[0.3, 0.3, 3]}
-        position={[-10, 1.5, 8]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b4513" />
-      </Cylinder>
-      <Cone
-        args={[1.5, 3, 8]}
-        position={[-10, 4.5, 8]}
-        castShadow
-      >
-        <meshStandardMaterial color="#228b22" />
-      </Cone>
-
-      <Cylinder
-        args={[0.3, 0.3, 3]}
-        position={[10, 1.5, 8]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b4513" />
-      </Cylinder>
-      <Cone
-        args={[1.5, 3, 8]}
-        position={[10, 4.5, 8]}
-        castShadow
-      >
-        <meshStandardMaterial color="#228b22" />
-      </Cone>
-
-      <Cylinder
-        args={[0.25, 0.25, 2.5]}
-        position={[-10, 1.25, -8]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b4513" />
-      </Cylinder>
-      <Cone
-        args={[1.2, 2.5, 8]}
-        position={[-10, 3.75, -8]}
-        castShadow
-      >
-        <meshStandardMaterial color="#228b22" />
-      </Cone>
-
-      <Cylinder
-        args={[0.25, 0.25, 2.5]}
-        position={[10, 1.25, -8]}
-        castShadow
-      >
-        <meshStandardMaterial color="#8b4513" />
-      </Cylinder>
-      <Cone
-        args={[1.2, 2.5, 8]}
-        position={[10, 3.75, -8]}
-        castShadow
-      >
-        <meshStandardMaterial color="#228b22" />
-      </Cone>
+      <Tree position={[-10, 0, 8]} trunkArgs={[0.3, 0.3, 3]} foliageArgs={[1.5, 3, 8]} />
+      <Tree position={[10, 0, 8]} trunkArgs={[0.3, 0.3, 3]} foliageArgs={[1.5, 3, 8]} />
+      <Tree position={[-10, 0, -8]} trunkArgs={[0.25, 0.25, 2.5]} foliageArgs={[1.2, 2.5, 8]} />
+      <Tree position={[10, 0, -8]} trunkArgs={[0.25, 0.25, 2.5]} foliageArgs={[1.2, 2.5, 8]} />
     </group>
   )
 }
