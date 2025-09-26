@@ -9,6 +9,7 @@ import TouchControls from './components/UI/TouchControls'
 function App() {
   const [controlMode, setControlMode] = useState('orbit')
   const [collisionEnabled, setCollisionEnabled] = useState(true)
+  const [opacity, setOpacity] = useState(1)
 
   return (
     <>
@@ -24,10 +25,16 @@ function App() {
             controlMode={controlMode}
             setControlMode={setControlMode}
             collisionEnabled={collisionEnabled}
+            opacity={opacity}
           />
         </Suspense>
       </Canvas>
-      <UI controlMode={controlMode} collisionEnabled={collisionEnabled} />
+      <UI
+        controlMode={controlMode}
+        collisionEnabled={collisionEnabled}
+        opacity={opacity}
+        setOpacity={setOpacity}
+      />
       <ControlToggle controlMode={controlMode} setControlMode={setControlMode} />
       {controlMode === 'walk' && (
         <CollisionToggle

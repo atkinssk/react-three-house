@@ -240,7 +240,7 @@ function Garden() {
   </>;
 }
 
-export default function House() {
+export default function House({ opacity = 1 }) {
   const houseRef = useRef()
 
   // Optional subtle rotation animation
@@ -253,8 +253,8 @@ export default function House() {
   return (
     <group ref={houseRef} position={[0, 0, 0]}>
       <Garden />
-      <Walls opacity={1} />
-      <Roof opacity={1} />
+      <Walls opacity={opacity} />
+      <Roof opacity={opacity} />
       <Interior />
 
       {/* Interior floor */}

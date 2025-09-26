@@ -18,7 +18,7 @@ const keyboardMap = [
   { name: 'rotateRight', keys: ['KeyE'] },
 ]
 
-export default function Experience({ controlMode, setControlMode, collisionEnabled }) {
+export default function Experience({ controlMode, setControlMode, collisionEnabled, opacity }) {
   return (
     <>
       {controlMode === 'walk' ? (
@@ -38,7 +38,7 @@ export default function Experience({ controlMode, setControlMode, collisionEnabl
 
       <Lights />
       <Environment />
-      <House />
+      <House opacity={opacity} />
       <axesHelper args={[2]} position={[0, 1, 3.2]} />
       <gridHelper args={[20, 20, 0xff0000, 'teal']} position={[0, 0.1, 0]} />
 

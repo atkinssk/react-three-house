@@ -1,9 +1,22 @@
 import React from 'react'
 
-export default function HUD({ controlMode, collisionEnabled }) {
+export default function HUD({ controlMode, collisionEnabled, opacity = 1, setOpacity = () => { } }) {
   return (
     <div className="ui-overlay">
       <h1>3D House {controlMode === 'walk' ? 'Walkthrough' : 'Visualization'}</h1>
+      <div style={{ marginTop: 8 }}>
+        <label style={{ display: 'block', fontSize: 12, opacity: 0.9 }}>House opacity: {Math.round(opacity * 100)}%</label>
+        <input
+          type="range"
+          min={0}
+          max={1}
+          step={0.01}
+          value={opacity}
+          onChange={(e) => setOpacity(parseFloat(e.target.value))}
+          style={{ width: 180 }}
+          aria-label="House opacity"
+        />
+      </div>
       {controlMode === 'walk' ? (
         <>
           <p>• Click to lock mouse and look around</p>
