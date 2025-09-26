@@ -8,7 +8,8 @@ export default function Door({
   width = 1,
   height = 2.2,
   thickness = 0.1,
-  handlePosition = 'left' // 'left' or 'right'
+  handlePosition = 'left', // 'left' or 'right'
+  opacity = 1
 }) {
   // Calculate handle position based on door dimensions and side
   const handleOffset = handlePosition === 'left' ? -width * 0.4 : width * 0.4
@@ -21,7 +22,7 @@ export default function Door({
         position={[0, 0, 0]}
         castShadow
       >
-        <meshStandardMaterial color={doorColor} />
+        <meshStandardMaterial color={doorColor} transparent opacity={opacity} />
       </Box>
 
       {/* Door handle */}

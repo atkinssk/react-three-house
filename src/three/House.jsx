@@ -113,7 +113,7 @@ function Walls({
     </mesh>
 
     {/* Door */}
-    <Door rotation={[0, 0, 0]} />
+    <Door rotation={[0, 0, 0]} opacity={opacity} />
 
     {/* Front windows */}
     <Window position={[-2.5, 1.5, 3.02]} orientation="front" />
