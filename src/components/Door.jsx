@@ -1,7 +1,7 @@
 import { Box, Cylinder } from '@react-three/drei'
 
 export default function Door({
-  position = [0, 1.1, 3.05],
+  position = [0, 1.1, 3],
   rotation = [0, Math.PI / 4, 0],
   doorColor = '#654321',
   handleColor = '#ffd700',

@@ -24,7 +24,7 @@ function Walls({
 
         {/* Door opening */}
         <Subtraction position={[0, -0.9, 0]}>
-          <boxGeometry args={[1.2, 2.2, 0.3]} />
+          <boxGeometry args={[1, 2.2, 0.3]} />
         </Subtraction>
 
         {/* Ground floor windows */}
