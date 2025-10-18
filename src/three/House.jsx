@@ -7,7 +7,7 @@ import Door from '../components/Door'
 import Table from '../components/Table'
 import Chair from '../components/Chair'
 import Tree from '../components/Tree'
-import { Staircase } from '../components/Staircase'
+import { Staircase3, Staircase2 } from '../components/Staircase'
 import GlassPane from '../components/GlassPane'
 
 function Walls({
@@ -205,6 +205,10 @@ function Interior() {
       args={[3, 0.2, 1.470]}
       position={[-1, 2.970 - 0.1, -1.470 / 2]}
     />
+    <Floor
+      args={[1, 0.2, 3.4]}
+      position={[1, 2.970 - 0.1, 0.5 / 2]}
+    />
 
     <GlassPane args={[3, 3, 0.1]} position={[-1, 1.5, 2]} />
     <GlassPane args={[3.5, 3, 0.1]} position={[0.5, 1.5, -1.8]} />
@@ -215,7 +219,7 @@ function Interior() {
 
     <Wall args={[1.35, 2.970, 0.1]} position={[-1.9, 2.970 / 2, -1.55]} />
 
-    <Staircase />
+    <Staircase2 />
 
     {/* First floor */}
     {/* <Box
