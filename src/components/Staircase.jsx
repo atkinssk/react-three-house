@@ -141,7 +141,7 @@ export function Staircase3() {
     );
 }
 
-export function Staircase2() {
+export function Staircase2a() {
     const stepsFirstFlight = 8;
     const stepsSecondFlight = 8;
 
@@ -172,6 +172,68 @@ export function Staircase2() {
         firstLandingPos[2]
         + (secondFlightDir[2] * stepWidth / 2) + (secondFlightDir[2] * stepGoing / 2)
         + firstFlightDir[0] * stepWidth / 2
+    ];
+
+    return (
+        <mesh position={startPosition}>
+            {/* First flight */}
+            <Flight
+                steps={stepsFirstFlight}
+                stepRise={stepRise}
+                stepGoing={stepGoing}
+                stepThickness={stepThickness}
+                stepDepth={stepDepth}
+                stepWidth={stepWidth}
+                startPos={firstFlightStart}
+                direction={firstFlightDir}
+            />
+            <Landing castShadow position={firstLandingPos} width={stepWidth} height={stepThickness} depth={stepWidth * 2} />
+            {/* Second flight */}
+            <Flight
+                steps={stepsSecondFlight}
+                stepRise={stepRise}
+                stepGoing={stepGoing}
+                stepThickness={stepThickness}
+                stepDepth={stepDepth}
+                stepWidth={stepWidth}
+                startPos={secondFlightStart}
+                direction={secondFlightDir}
+            />
+        </mesh>
+    );
+}
+
+export function Staircase2b() {
+    const stepsFirstFlight = 7;
+    const stepsSecondFlight = 9;
+
+    const startPosition = [-2, 0, 1.5];
+
+    // First flight
+    const firstFlightStart = [0, stepRise, 0];
+    const firstFlightDir = [1, 0, 0]; // forward
+
+    // First landing
+    const firstLandingPos = [
+        firstFlightStart[0]
+        + (firstFlightDir[0] * (stepWidth / 2 + (stepsFirstFlight - 0.5) * stepGoing))
+        - firstFlightDir[2] * stepWidth / 2,
+        firstFlightStart[1] + (stepsFirstFlight) * stepRise,
+        firstFlightStart[2]
+        + (firstFlightDir[2] * (stepWidth / 2 + (stepsFirstFlight - 0.5) * stepGoing))
+        - firstFlightDir[0] * stepWidth / 2
+    ];
+
+    // Second flight (forward again)
+    const secondFlightDir = [-1, 0, 0];
+    const secondFlightStart = [
+        firstLandingPos[0]
+        + (secondFlightDir[0] * stepWidth / 2) + (secondFlightDir[0] * stepGoing / 2)
+        - firstFlightDir[2] * stepWidth / 2,
+        firstLandingPos[1] + stepRise,
+        firstLandingPos[2]
+        + (secondFlightDir[2] * stepWidth / 2) + (secondFlightDir[2] * stepGoing / 2)
+        - firstFlightDir[0] * stepWidth / 2
     ];
 
     return (
