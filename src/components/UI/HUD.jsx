@@ -4,7 +4,7 @@ export default function HUD({ controlMode, collisionEnabled, opacity = 1, setOpa
   return (
     <div className="ui-overlay">
       <h1>3D House {controlMode === 'walk' ? 'Walkthrough' : 'Visualization'}</h1>
-      <div style={{ marginTop: 8 }}>
+      {/* <div style={{ marginTop: 8 }}>
         <label style={{ display: 'block', fontSize: 12, opacity: 0.9 }}>House opacity: {Math.round(opacity * 100)}%</label>
         <input
           type="range"
@@ -16,7 +16,7 @@ export default function HUD({ controlMode, collisionEnabled, opacity = 1, setOpa
           style={{ width: 180 }}
           aria-label="House opacity"
         />
-      </div>
+      </div> */}
       <div style={{ marginTop: 12 }}>
         <label style={{ display: 'block', fontSize: 12, opacity: 0.9, marginBottom: 4 }}>Staircase type:</label>
         <select
