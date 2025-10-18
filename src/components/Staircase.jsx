@@ -203,12 +203,34 @@ export function Staircase2a() {
     );
 }
 
-export function Staircase2b() {
-    const stepsFirstFlight = 7;
-    const stepsSecondFlight = 9;
+export function Staircase2b1() {
+    return Staircase2b({
+        stepRise: 0.175,
+        stepGoing: 0.250,
+        stepsFirstFlight: 7,
+        stepsSecondFlight: 9,
+        startPosition: [-2, 0, 1.5]
+    });
+}
 
-    const startPosition = [-2, 0, 1.5];
+export function Staircase2b2() {
+    return Staircase2b({
+        stepRise: 0.2,
+        stepGoing: 0.250,
+        stepsFirstFlight: 4,
+        stepsSecondFlight: 9,
+        startPosition: [-1.3, 0, 1.5]
 
+    });
+}
+
+function Staircase2b({
+    stepRise,
+    stepGoing,
+    stepsFirstFlight,
+    stepsSecondFlight,
+    startPosition
+}) {
     // First flight
     const firstFlightStart = [0, stepRise, 0];
     const firstFlightDir = [1, 0, 0]; // forward

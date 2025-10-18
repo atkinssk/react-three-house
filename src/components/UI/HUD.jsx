@@ -34,7 +34,8 @@ export default function HUD({ controlMode, collisionEnabled, opacity = 1, setOpa
           aria-label="Staircase type"
         >
           <option value="staircase2a" style={{ backgroundColor: '#333', color: 'white' }}>Staircase 2A</option>
-          <option value="staircase2b" style={{ backgroundColor: '#333', color: 'white' }}>Staircase 2B</option>
+          <option value="staircase2b1" style={{ backgroundColor: '#333', color: 'white' }}>Staircase 2B1</option>
+          <option value="staircase2b2" style={{ backgroundColor: '#333', color: 'white' }}>Staircase 2B2</option>
           <option value="staircase3" style={{ backgroundColor: '#333', color: 'white' }}>Staircase 3</option>
         </select>
       </div>

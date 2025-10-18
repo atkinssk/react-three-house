@@ -7,7 +7,7 @@ import Door from '../components/Door'
 import Table from '../components/Table'
 import Chair from '../components/Chair'
 import Tree from '../components/Tree'
-import { Staircase3, Staircase2a, Staircase2b } from '../components/Staircase'
+import { Staircase2a, Staircase2b1, Staircase2b2, Staircase3 } from '../components/Staircase'
 import GlassPane from '../components/GlassPane'
 
 
@@ -234,7 +234,8 @@ export default function House({ opacity = 1, staircaseType = 'staircase2a' }) {
       <Wall args={[1.35, 2.970, 0.1]} position={[-1.9, 2.970 / 2, -1.55]} />
 
       {staircaseType === 'staircase2a' && <Staircase2a />}
-      {staircaseType === 'staircase2b' && <Staircase2b />}
+      {staircaseType === 'staircase2b1' && <Staircase2b1 />}
+      {staircaseType === 'staircase2b2' && <Staircase2b2 />}
       {staircaseType === 'staircase3' && <Staircase3 />}
 
       {/* First floor */}
