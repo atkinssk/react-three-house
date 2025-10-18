@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { PointerLockControls, KeyboardControls, OrbitControls } from '@react-three/drei'
 import House from '../three/House'
 import Lights from '../three/Lights'
@@ -18,7 +18,7 @@ const keyboardMap = [
   { name: 'rotateRight', keys: ['KeyE'] },
 ]
 
-export default function Experience({ controlMode, setControlMode, collisionEnabled, opacity }) {
+export default function Experience({ controlMode, setControlMode, collisionEnabled, opacity, staircaseType }) {
   return (
     <>
       {controlMode === 'walk' ? (
@@ -38,7 +38,7 @@ export default function Experience({ controlMode, setControlMode, collisionEnabl
 
       <Lights />
       <Environment />
-      <House opacity={opacity} />
+      <House opacity={opacity} staircaseType={staircaseType} />
       {/* <axesHelper args={[2]} position={[0, 1, 0]} /> */}
       <gridHelper args={[20, 20, 0xff0000, 'teal']} position={[0, 0.01, 0]} />
 

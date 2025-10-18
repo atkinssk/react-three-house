@@ -1,6 +1,6 @@
-import React from 'react'
 
-export default function HUD({ controlMode, collisionEnabled, opacity = 1, setOpacity = () => { } }) {
+
+export default function HUD({ controlMode, collisionEnabled, opacity = 1, setOpacity = () => { }, staircaseType = 'staircase2a', setStaircaseType = () => { } }) {
   return (
     <div className="ui-overlay">
       <h1>3D House {controlMode === 'walk' ? 'Walkthrough' : 'Visualization'}</h1>
@@ -16,6 +16,27 @@ export default function HUD({ controlMode, collisionEnabled, opacity = 1, setOpa
           style={{ width: 180 }}
           aria-label="House opacity"
         />
+      </div>
+      <div style={{ marginTop: 12 }}>
+        <label style={{ display: 'block', fontSize: 12, opacity: 0.9, marginBottom: 4 }}>Staircase type:</label>
+        <select
+          value={staircaseType}
+          onChange={(e) => setStaircaseType(e.target.value)}
+          style={{
+            padding: '4px 8px',
+            fontSize: 12,
+            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+            color: 'white',
+            border: '1px solid rgba(255, 255, 255, 0.3)',
+            borderRadius: '4px',
+            width: 120
+          }}
+          aria-label="Staircase type"
+        >
+          <option value="staircase2a" style={{ backgroundColor: '#333', color: 'white' }}>Staircase 2A</option>
+          <option value="staircase2b" style={{ backgroundColor: '#333', color: 'white' }}>Staircase 2B</option>
+          <option value="staircase3" style={{ backgroundColor: '#333', color: 'white' }}>Staircase 3</option>
+        </select>
       </div>
       {controlMode === 'walk' ? (
         <>

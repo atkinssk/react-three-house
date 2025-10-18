@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from 'react'
+import { Suspense, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import Experience from './components/Experience'
 import UI from './components/UI/HUD'
@@ -10,6 +10,7 @@ function App() {
   const [controlMode, setControlMode] = useState('orbit')
   const [collisionEnabled, setCollisionEnabled] = useState(true)
   const [opacity, setOpacity] = useState(1)
+  const [staircaseType, setStaircaseType] = useState('staircase2a')
 
   return (
     <>
@@ -26,6 +27,7 @@ function App() {
             setControlMode={setControlMode}
             collisionEnabled={collisionEnabled}
             opacity={opacity}
+            staircaseType={staircaseType}
           />
         </Suspense>
       </Canvas>
@@ -34,6 +36,8 @@ function App() {
         collisionEnabled={collisionEnabled}
         opacity={opacity}
         setOpacity={setOpacity}
+        staircaseType={staircaseType}
+        setStaircaseType={setStaircaseType}
       />
       <ControlToggle controlMode={controlMode} setControlMode={setControlMode} />
       {controlMode === 'walk' && (
