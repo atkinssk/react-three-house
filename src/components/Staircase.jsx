@@ -10,13 +10,13 @@ function Step({ position, size }) {
     );
 }
 
-function Flight({ steps, stepHeight, stepThickness, stepDepth, stepWidth, startPos, direction }) {
+function Flight({ steps, stepRise, stepGoing, stepThickness, stepDepth, stepWidth, startPos, direction }) {
     const meshes = [];
 
     for (let i = 0; i < steps; i++) {
-        const x = startPos[0] + (direction[0] * i * stepDepth);
-        const y = startPos[1] + i * stepHeight;
-        const z = startPos[2] + (direction[2] * i * stepDepth);
+        const x = startPos[0] + (direction[0] * i * stepGoing);
+        const y = startPos[1] + i * stepRise;
+        const z = startPos[2] + (direction[2] * i * stepGoing);
 
         meshes.push(
             <Step
@@ -45,54 +45,65 @@ function Landing({ position, width, height, depth }) {
 }
 
 export function Staircase() {
-    const stepHeight = 0.2;
-    const stepThickness = 0.1;
+    // Rise: The height of each step must be between 150 mm and 220 mm, and this must be consistent throughout the staircase.
+    // Going: The depth of each step must be a minimum of 220 and a maximum of 300 mm.
+    // Width: There is no minimum width for domestic staircases, but 750 mm is often cited for loft conversions, and 800 mm for main staircases. Public and fire-escape staircases have stricter width requirements. 
+
+
+    const stepRise = 0.185; // Current stairs are 175
+    const stepGoing = 0.250
+    const stepThickness = 0.05;
     const stepDepth = 0.3;
-    const stepWidth = 1;
-    const stepsFirstFlight = 3;
+    const stepWidth = 0.90; // Current stairs are 990
+
+    const stepsFirstFlight = 5;
     const stepsSecondFlight = 4;
-    const stepsThirdFlight = 3;
+    const stepsThirdFlight = 4;
+
+    const startPosition = [-0.08, 0, -0.07];
 
     // First flight
-    const firstFlightStart = [0, stepHeight * 1.5, 0];
+    const firstFlightStart = [0, stepRise, 0];
     const firstFlightDir = [0, 0, 1]; // forward
 
     // First landing
     const firstLandingPos = [
-        firstFlightStart[0] + (firstFlightDir[0] * (stepsFirstFlight + 1) * stepDepth),
-        firstFlightStart[1] + (stepsFirstFlight) * stepHeight,
-        firstFlightStart[2] + (firstFlightDir[2] * (stepsFirstFlight + 1) * stepDepth)
+        firstFlightStart[0] + (firstFlightDir[0] * (stepWidth / 2 + (stepsFirstFlight - 0.5) * stepGoing)),
+        firstFlightStart[1] + (stepsFirstFlight) * stepRise,
+        firstFlightStart[2] + (firstFlightDir[2] * (stepWidth / 2 + (stepsFirstFlight - 0.5) * stepGoing))
     ];
 
     // Second flight (to the left)
     const secondFlightDir = [-1, 0, 0]; // sideways
     const secondFlightStart = [
-        firstFlightStart[0] + (firstFlightDir[0] * ((stepsFirstFlight + 1) * stepDepth) + (secondFlightDir[0] * stepWidth / 2) + (secondFlightDir[0] * stepDepth / 2)),
-        firstFlightStart[1] + (stepsFirstFlight + 1) * stepHeight,
-        firstFlightStart[2] + (firstFlightDir[2] * ((stepsFirstFlight + 1) * stepDepth) + (secondFlightDir[2] * stepWidth / 2) + (secondFlightDir[2] * stepDepth / 2))
+        firstLandingPos[0] + (secondFlightDir[0] * stepWidth / 2) + (secondFlightDir[0] * stepGoing / 2),
+        firstLandingPos[1] + stepRise,
+        firstLandingPos[2] + (secondFlightDir[2] * stepWidth / 2) + (secondFlightDir[2] * stepGoing / 2)
     ];
 
     // Second landing
     const secondLandingPos = [
-        secondFlightStart[0] + (secondFlightDir[0] * (stepsSecondFlight + 1) * stepDepth),
-        secondFlightStart[1] + (stepsSecondFlight) * stepHeight,
-        secondFlightStart[2] + (secondFlightDir[2] * (stepsSecondFlight + 1) * stepDepth)
+        secondFlightStart[0] + (secondFlightDir[0] * (stepWidth / 2 + (stepsSecondFlight - 0.5) * stepGoing)),
+        secondFlightStart[1] + (stepsSecondFlight) * stepRise,
+        secondFlightStart[2] + (secondFlightDir[2] * (stepWidth / 2 + (stepsSecondFlight - 0.5) * stepGoing))
     ];
 
     // Third flight (forward again)
     const thirdFlightDir = [0, 0, -1];
     const thirdFlightStart = [
-        secondFlightStart[0] + (secondFlightDir[0] * (stepsSecondFlight + 1) * stepDepth + (thirdFlightDir[0] * stepWidth / 2) + (thirdFlightDir[0] * stepDepth / 2)),
-        secondFlightStart[1] + (stepsSecondFlight + 1) * stepHeight,
-        secondFlightStart[2] + (secondFlightDir[2] * (stepsSecondFlight + 1) * stepDepth + (thirdFlightDir[2] * stepWidth / 2) + (thirdFlightDir[2] * stepDepth / 2))
+        secondLandingPos[0] + (thirdFlightDir[0] * stepWidth / 2) + (thirdFlightDir[0] * stepGoing / 2),
+        secondLandingPos[1] + stepRise,
+        secondLandingPos[2] + (thirdFlightDir[2] * stepWidth / 2) + (thirdFlightDir[2] * stepGoing / 2)
     ];
 
     return (
-        <>
+        <mesh position={startPosition}>
+
             {/* First flight */}
             <Flight
                 steps={stepsFirstFlight}
-                stepHeight={stepHeight}
+                stepRise={stepRise}
+                stepGoing={stepGoing}
                 stepThickness={stepThickness}
                 stepDepth={stepDepth}
                 stepWidth={stepWidth}
@@ -104,7 +115,8 @@ export function Staircase() {
             {/* Second flight */}
             <Flight
                 steps={stepsSecondFlight}
-                stepHeight={stepHeight}
+                stepRise={stepRise}
+                stepGoing={stepGoing}
                 stepThickness={stepThickness}
                 stepDepth={stepDepth}
                 stepWidth={stepWidth}
@@ -117,13 +129,14 @@ export function Staircase() {
             <Flight
                 steps={stepsThirdFlight}
                 stepThickness={stepThickness}
-                stepHeight={stepHeight}
+                stepRise={stepRise}
+                stepGoing={stepGoing}
                 stepDepth={stepDepth}
                 stepWidth={stepWidth}
                 startPos={thirdFlightStart}
                 direction={thirdFlightDir}
             />
-        </>
+        </mesh>
     );
 }
 

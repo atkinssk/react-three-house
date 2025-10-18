@@ -8,6 +8,7 @@ import Table from '../components/Table'
 import Chair from '../components/Chair'
 import Tree from '../components/Tree'
 import { Staircase } from '../components/Staircase'
+import GlassPane from '../components/GlassPane'
 
 function Walls({
   wallColour = '#d4a574',
@@ -159,7 +160,7 @@ function Roof({
   </>;
 }
 
-function Interior() {
+function Furniture() {
   return <>
     {/* Interior elements to see through windows */}
     {/* Living room furniture */}
@@ -173,12 +174,17 @@ function Interior() {
       </Box> */}
 
     {/* Table (refactored into component) */}
-    <Table position={[2, 1, 0.5]} />
 
     {/* Chairs (refactored into component) */}
     <Chair position={[1, 0.8, 0.5]} rotation={[0, - Math.PI / 2, 0]} />
     <Chair position={[3, 0.8, 0.5]} rotation={[0, Math.PI / 2, 0]} />
 
+  </>;
+}
+
+function Interior() {
+  return <>
+    {/* <Furniture/> */}
     {/* Interior back wall decoration */}
     {/* <Box
         args={[1, 1.5, 0.1]}
@@ -188,20 +194,59 @@ function Interior() {
         <meshStandardMaterial color="#ff6b6b" />
       </Box> */}
 
-    <mesh position={[-1, 0, 0]}>
-      <Staircase />
-    </mesh>
+    {/* Ground floor */}
+    <Floor
+      args={[5, 0.2, 5]}
+      position={[0, -0.1, 0]}
+    />
 
     {/* First floor */}
-    <Box
+    <Floor
+      args={[3, 0.2, 1.470]}
+      position={[-1, 2.970 - 0.1, -1.470 / 2]}
+    />
+
+    <GlassPane args={[3, 3, 0.1]} position={[-1, 1.5, 2]} />
+    <GlassPane args={[3.5, 3, 0.1]} position={[0.5, 1.5, -1.8]} />
+
+    <Wall args={[0.1, 2.970, 1]} position={[-2.5, 2.970 / 2, 1.5]} />
+    <Wall args={[0.1, 2.970, 1.030]} position={[-2.7, 2.970 / 2, 0.5]} />
+    <Wall args={[0.1, 2.970, 1.470]} position={[-2.7, 2.970 / 2, -0.75]} />
+
+    <Wall args={[1.35, 2.970, 0.1]} position={[-1.9, 2.970 / 2, -1.55]} />
+
+    <Staircase />
+
+    {/* First floor */}
+    {/* <Box
       args={[7.6, 0.1, 2]}
       position={[0, 2.4, -1.8]}
       receiveShadow
     >
       <meshStandardMaterial color="#8b7355" />
-    </Box>
+    </Box> */}
 
   </>;
+}
+
+function Floor({ args, position, color = "#8b7355" }) {
+  return <Box
+    args={args}
+    position={position}
+    castShadow
+  >
+    <meshStandardMaterial color={color} />
+  </Box>
+}
+
+function Wall({ args, position, color = "#ffffff" }) {
+  return <Box
+    args={args}
+    position={position}
+    castShadow
+  >
+    <meshStandardMaterial color={color} />
+  </Box>
 }
 
 function Garden() {
@@ -209,7 +254,7 @@ function Garden() {
     {/* Ground/Base - Expanded garden */}
     <Box
       args={[24, 0.2, 20]}
-      position={[0, -0.1, 0]}
+      position={[0, -0.2, 0]}
       castShadow
       receiveShadow
     >
@@ -253,19 +298,10 @@ export default function House({ opacity = 1 }) {
   return (
     <group ref={houseRef} position={[0, 0, 0]}>
       <Garden />
-      <Walls opacity={opacity} />
-      <Roof opacity={opacity} />
+      {/* <Walls opacity={opacity} /> */}
+      {/* <Roof opacity={opacity} /> */}
       <Interior />
 
-      {/* Interior floor */}
-      <Box
-        args={[7.6, 0.2, 5.6]}
-        position={[0, 0.1, 0]}
-        receiveShadow
-      >
-        <meshStandardMaterial color="#8b7355" />
-      </Box>
-
-    </group>
+    </group >
   )
 }
