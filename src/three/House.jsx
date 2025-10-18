@@ -196,7 +196,7 @@ function Interior() {
 
     {/* Ground floor */}
     <Floor
-      args={[5, 0.2, 5]}
+      args={[6, 0.2, 5]}
       position={[0, -0.1, 0]}
     />
 
@@ -214,6 +214,9 @@ function Interior() {
     <GlassPane args={[3.5, 3, 0.1]} position={[0.5, 1.5, -1.8]} />
 
     <Wall args={[0.1, 2.970, 1]} position={[-2.5, 2.970 / 2, 1.5]} />
+    <Box args={[0.2, 1.981, 0.762]} position={[-2.7, 1.981 / 2, 0.5]}>
+      <meshStandardMaterial color="black" />
+    </Box>
     <Wall args={[0.1, 2.970, 1.030]} position={[-2.7, 2.970 / 2, 0.5]} />
     <Wall args={[0.1, 2.970, 1.470]} position={[-2.7, 2.970 / 2, -0.75]} />
 
