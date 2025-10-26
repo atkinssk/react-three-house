@@ -31,7 +31,7 @@ export default function Kitchen({
             />
 
             <IslandUnit position={[1.2, 0, -1]} />
-            <Fridge position={[2, 0, 1.6]} rotation={[0, Math.PI, 0]} />
+            <Fridge position={[1.5, 0, 1.6]} rotation={[0, Math.PI, 0]} />
 
         </group>
     )
