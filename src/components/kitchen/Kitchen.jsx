@@ -3,6 +3,7 @@ import Wall from '../Wall'
 import IslandUnit from './IslandUnit'
 import Fridge from './Fridge'
 import Oven from './Oven'
+import Worktop from './Worktop'
 
 export default function Kitchen({
     position = [0, 0, 0],
@@ -32,9 +33,11 @@ export default function Kitchen({
             />
 
             <IslandUnit position={[1.2, 0, -1]} />
-            <Fridge position={[1.5, 0, 1.6]} rotation={[0, Math.PI, 0]} />
-            <Oven position={[-2.5, 1, 0]} rotation={[0, Math.PI / 2, 0]} />
-            <Oven position={[-2.5, 1, 0.7]} rotation={[0, Math.PI / 2, 0]} />
+            <Fridge position={[1.7, 0, 1.6]} rotation={[0, Math.PI, 0]} />
+            <Oven position={[-2.5, 1, -1.1]} rotation={[0, Math.PI / 2, 0]} />
+            <Oven position={[-2.5, 1, -0.4]} rotation={[0, Math.PI / 2, 0]} />
+            <Worktop args={[4, 0.05, 0.75]} position={[-(5.63 - 4) / 2, 0.9, 2.1 - 0.75 / 2]} />
+            <Worktop args={[0.65, 0.05, 4.2 - 0.75]} position={[-(5.630 - 0.65) / 2, 0.9, -(0.75 / 2)]} />
 
         </group>
     )
