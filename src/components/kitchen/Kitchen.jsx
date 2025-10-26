@@ -1,5 +1,6 @@
 import Floor from '../Floor'
 import Wall from '../Wall'
+import IslandUnit from './IslandUnit'
 
 export default function Kitchen({
     position = [0, 0, 0],
@@ -16,17 +17,19 @@ export default function Kitchen({
 
             {/* Back wall */}
             <Wall
-                args={[5.630, 3, 0.1]}
-                position={[0, 1.5, 2.15]}
+                args={[5.630, 2.4, 0.1]}
+                position={[0, 1.2, 2.15]}
                 color={wallColor}
             />
 
             {/* Side wall */}
             <Wall
-                args={[0.1, 3, 4.2]}
-                position={[-(5.630 / 2) - 0.05, 1.5, 0]}
+                args={[0.1, 2.4, 4.2]}
+                position={[-(5.630 / 2) - 0.05, 1.2, 0]}
                 color={wallColor}
             />
+
+            <IslandUnit position={[1.2, 0, -1]} />
         </group>
     )
 }
