@@ -1,27 +1,10 @@
 import { Box } from '@react-three/drei'
 import { Staircase2a, Staircase2b1, Staircase2b2, Staircase3 } from '../Staircase'
-import GlassPane from './GlassPane'
+import GlassPane from '../GlassPane'
+import Floor from '../Floor'
+import Wall from '../Wall'
 
 export default function Hallway({ staircaseType = 'staircase2a' }) {
-    function Floor({ args, position, color = "#8b7355" }) {
-        return <Box
-            args={args}
-            position={position}
-            castShadow
-        >
-            <meshStandardMaterial color={color} />
-        </Box>
-    }
-
-    function Wall({ args, position, color = "#ffffff" }) {
-        return <Box
-            args={args}
-            position={position}
-            castShadow
-        >
-            <meshStandardMaterial color={color} />
-        </Box>
-    }
 
     return (
         <>
