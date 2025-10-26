@@ -7,6 +7,7 @@ import Door from '../components/Door'
 import Chair from '../components/Chair'
 import Garden from '../components/Garden'
 import Hallway from '../components/hallway/Hallway'
+import Kitchen from '../components/kitchen/Kitchen'
 
 
 export default function House({ opacity = 1, staircaseType = 'staircase2a' }) {
@@ -204,6 +205,7 @@ export default function House({ opacity = 1, staircaseType = 'staircase2a' }) {
       {/* <Walls opacity={opacity} /> */}
       {/* <Roof opacity={opacity} /> */}
       <Hallway staircaseType={staircaseType} />
+      <Kitchen position={[0, 0, -5]} />
 
     </group >
   )
