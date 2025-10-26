@@ -1,6 +1,7 @@
 import Floor from '../Floor'
 import Wall from '../Wall'
 import IslandUnit from './IslandUnit'
+import Fridge from './Fridge'
 
 export default function Kitchen({
     position = [0, 0, 0],
@@ -30,6 +31,8 @@ export default function Kitchen({
             />
 
             <IslandUnit position={[1.2, 0, -1]} />
+            <Fridge position={[2, 0, 1.6]} rotation={[0, Math.PI, 0]} />
+
         </group>
     )
 }
