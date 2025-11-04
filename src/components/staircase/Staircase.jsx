@@ -3,16 +3,16 @@ import React from "react";
 import { useMemo } from 'react'
 import * as THREE from 'three'
 
-function Step({ position, size }) {
+function Step({ position, size, color }) {
     return (
         <mesh position={position}>
             <boxGeometry args={size} />
-            <meshStandardMaterial color="lightgray" />
+            <meshStandardMaterial color={color} />
         </mesh>
     );
 }
 
-function Flight({ steps, stepRise, stepGoing, stepThickness, stepDepth, stepWidth, startPos, direction }) {
+function Flight({ steps, stepRise, stepGoing, stepThickness, stepDepth, stepWidth, startPos, direction, color }) {
     const meshes = [];
 
     for (let i = 0; i < steps; i++) {
@@ -30,6 +30,7 @@ function Flight({ steps, stepRise, stepGoing, stepThickness, stepDepth, stepWidt
                     stepThickness,
                     stepDepth * direction[2] + stepWidth * direction[0]
                 ]}
+                color={color}
             />
         );
     }
@@ -37,16 +38,16 @@ function Flight({ steps, stepRise, stepGoing, stepThickness, stepDepth, stepWidt
     return <>{meshes}</>;
 }
 
-function Landing({ position, width, height, depth }) {
+function Landing({ position, width, height, depth, color }) {
     return (
         <mesh position={position}>
             <boxGeometry args={[width, height, depth]} />
-            <meshStandardMaterial color="darkgray" />
+            <meshStandardMaterial color={color} />
         </mesh>
     );
 }
 
-function TriStep({ points, position, depth, color = 'gray' }) {
+function TriStep({ points, position, depth, color }) {
     const geometry = useMemo(() => {
         const shape = new THREE.Shape();
         shape.moveTo(...points[0]);
@@ -64,7 +65,7 @@ function TriStep({ points, position, depth, color = 'gray' }) {
     );
 }
 
-function TrapStep({ points, position, depth, color = 'gray' }) {
+function TrapStep({ points, position, depth, color }) {
     const geometry = useMemo(() => {
         const shape = new THREE.Shape();
         shape.moveTo(...points[0]);
@@ -83,25 +84,26 @@ function TrapStep({ points, position, depth, color = 'gray' }) {
     );
 }
 
-function ThreeStepWinder({ position, width, depth, rising, rotation = 0 }) {
+function ThreeStepWinder({ position, width, depth, rising, rotation = 0, color }) {
     const halfWidth = width / 2;
     const halfDepth = depth / 2
+    const tanFactor = 0.577;
     return <mesh position={position} rotation={[-Math.PI / 2, 0, rotation]}>
         <TriStep
             position={[-halfWidth, -halfWidth, -halfDepth + rising * 2]}
-            points={[[0, 0], [width, 0], [width, width / 2]]}
+            points={[[0, 0], [width, 0], [width, width * tanFactor]]}
             depth={depth}
-            color="red" />
+            color={color} />
         <TrapStep
             position={[-halfWidth, -halfWidth, -halfDepth + rising]}
-            points={[[0, 0], [width, width / 2], [width, width], [width / 2, width]]}
+            points={[[0, 0], [width, width * tanFactor], [width, width], [width * tanFactor, width]]}
             depth={depth}
-            color="green" />
+            color={color} />
         <TriStep
             position={[-halfWidth, -halfWidth, -halfDepth]}
-            points={[[0, 0], [width / 2, width], [0, width]]}
+            points={[[0, 0], [width * tanFactor, width], [0, width]]}
             depth={depth}
-            color="blue" />
+            color={color} />
     </mesh>
 }
 
@@ -114,6 +116,7 @@ const stepGoing = 0.250
 const stepThickness = 0.05;
 const stepDepth = 0.3;
 const stepWidth = 0.90; // Current stairs are 990
+const stepColor = "burlywood";
 
 export function Staircase4() {
 
@@ -170,13 +173,16 @@ export function Staircase4() {
                 stepWidth={stepWidth}
                 startPos={firstFlightStart}
                 direction={firstFlightDir}
+                color={stepColor}
             />
             <ThreeStepWinder
                 position={firstLandingPos}
                 width={stepWidth}
                 depth={stepThickness}
                 rising={stepRise}
-                rotation={-Math.PI / 2} />
+                rotation={-Math.PI / 2}
+                color={stepColor}
+            />
 
             {/* Second flight */}
             <Flight
@@ -188,13 +194,16 @@ export function Staircase4() {
                 stepWidth={stepWidth}
                 startPos={secondFlightStart}
                 direction={secondFlightDir}
+                color={stepColor}
             />
             <ThreeStepWinder
                 position={secondLandingPos}
                 width={stepWidth}
                 depth={stepThickness}
                 rising={stepRise}
-                rotation={Math.PI} />
+                rotation={Math.PI}
+                color={stepColor}
+            />
 
             {/* Third flight */}
             <Flight
@@ -206,6 +215,7 @@ export function Staircase4() {
                 stepWidth={stepWidth}
                 startPos={thirdFlightStart}
                 direction={thirdFlightDir}
+                color={stepColor}
             />
         </mesh>
     );
@@ -267,8 +277,11 @@ export function Staircase3() {
                 stepWidth={stepWidth}
                 startPos={firstFlightStart}
                 direction={firstFlightDir}
+                color={stepColor}
             />
-            <Landing castShadow position={firstLandingPos} width={stepWidth} height={stepThickness} depth={stepWidth} />
+            <Landing castShadow position={firstLandingPos} width={stepWidth} height={stepThickness} depth={stepWidth}
+                color={stepColor}
+            />
 
             {/* Second flight */}
             <Flight
@@ -280,8 +293,11 @@ export function Staircase3() {
                 stepWidth={stepWidth}
                 startPos={secondFlightStart}
                 direction={secondFlightDir}
+                color={stepColor}
             />
-            <Landing castShadow position={secondLandingPos} width={stepWidth} height={stepThickness} depth={stepWidth} />
+            <Landing castShadow position={secondLandingPos} width={stepWidth} height={stepThickness} depth={stepWidth}
+                color={stepColor}
+            />
 
             {/* Third flight */}
             <Flight
@@ -293,6 +309,7 @@ export function Staircase3() {
                 stepWidth={stepWidth}
                 startPos={thirdFlightStart}
                 direction={thirdFlightDir}
+                color={stepColor}
             />
         </mesh>
     );
@@ -343,8 +360,11 @@ export function Staircase2a() {
                 stepWidth={stepWidth}
                 startPos={firstFlightStart}
                 direction={firstFlightDir}
+                color={stepColor}
             />
-            <Landing castShadow position={firstLandingPos} width={stepWidth} height={stepThickness} depth={stepWidth * 2} />
+            <Landing castShadow position={firstLandingPos} width={stepWidth} height={stepThickness} depth={stepWidth * 2}
+                color={stepColor}
+            />
             {/* Second flight */}
             <Flight
                 steps={stepsSecondFlight}
@@ -355,6 +375,7 @@ export function Staircase2a() {
                 stepWidth={stepWidth}
                 startPos={secondFlightStart}
                 direction={secondFlightDir}
+                color={stepColor}
             />
         </mesh>
     );
@@ -427,8 +448,11 @@ function Staircase2b({
                 stepWidth={stepWidth}
                 startPos={firstFlightStart}
                 direction={firstFlightDir}
+                color={stepColor}
             />
-            <Landing castShadow position={firstLandingPos} width={stepWidth} height={stepThickness} depth={stepWidth * 2} />
+            <Landing castShadow position={firstLandingPos} width={stepWidth} height={stepThickness} depth={stepWidth * 2}
+                color={stepColor}
+            />
             {/* Second flight */}
             <Flight
                 steps={stepsSecondFlight}
@@ -439,6 +463,7 @@ function Staircase2b({
                 stepWidth={stepWidth}
                 startPos={secondFlightStart}
                 direction={secondFlightDir}
+                color={stepColor}
             />
         </mesh>
     );
