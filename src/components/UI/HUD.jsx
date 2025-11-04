@@ -37,6 +37,7 @@ export default function HUD({ controlMode, collisionEnabled, opacity = 1, setOpa
           <option value="staircase2b1" style={{ backgroundColor: '#333', color: 'white' }}>Staircase 2B1</option>
           <option value="staircase2b2" style={{ backgroundColor: '#333', color: 'white' }}>Staircase 2B2</option>
           <option value="staircase3" style={{ backgroundColor: '#333', color: 'white' }}>Staircase 3</option>
+          <option value="staircase4" style={{ backgroundColor: '#333', color: 'white' }}>Staircase 4</option>
         </select>
       </div>
       {controlMode === 'walk' ? (

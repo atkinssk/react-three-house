@@ -1,10 +1,10 @@
 import { Box } from '@react-three/drei'
-import { Staircase2a, Staircase2b1, Staircase2b2, Staircase3 } from '../Staircase'
+import { Staircase2a, Staircase2b1, Staircase2b2, Staircase3, Staircase4 } from '../staircase/Staircase'
 import GlassPane from '../GlassPane'
 import Floor from '../Floor'
 import Wall from '../Wall'
 
-export default function Hallway({ staircaseType = 'staircase2a' }) {
+export default function Hallway({ staircaseType = 'staircase4' }) {
 
     return (
         <>
@@ -40,6 +40,7 @@ export default function Hallway({ staircaseType = 'staircase2a' }) {
             {staircaseType === 'staircase2b1' && <Staircase2b1 />}
             {staircaseType === 'staircase2b2' && <Staircase2b2 />}
             {staircaseType === 'staircase3' && <Staircase3 />}
+            {staircaseType === 'staircase4' && <Staircase4 />}
         </>
     )
 }
