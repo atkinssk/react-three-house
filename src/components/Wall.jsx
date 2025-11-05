@@ -5,10 +5,9 @@ export default function Wall({ args, position, color = "#ffffff" }) {
     const [isTransparent, setIsTransparent] = useState(false)
 
     const handleClick = () => {
-        console.log('Wall clicked! Current transparency:', isTransparent)
-        console.log('Wall position:', position)
-        console.log('Toggling to:', !isTransparent)
         setIsTransparent(!isTransparent)
+        console.log('Wall clicked; position:%s transparent:%s',
+            position, isTransparent);
     }
 
     return (
