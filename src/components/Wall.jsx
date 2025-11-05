@@ -4,10 +4,9 @@ import { Box } from '@react-three/drei'
 export default function Wall({ args, position, color = "#ffffff" }) {
     const [isTransparent, setIsTransparent] = useState(false)
 
-    const handleClick = () => {
+    const handleClick = (event) => {
+        event.stopPropagation()
         setIsTransparent(!isTransparent)
-        console.log('Wall clicked; position:%s transparent:%s',
-            position, isTransparent);
     }
 
     return (
