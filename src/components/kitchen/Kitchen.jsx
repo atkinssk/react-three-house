@@ -18,6 +18,7 @@ export default function Kitchen({
                 position={[0, -0.05, 0]}
                 color={floorColor}
                 wallOpacity={wallOpacity}
+                enableTransparencyClick={false}
             />
 
             {/* Back wall */}

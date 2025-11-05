@@ -13,6 +13,7 @@ export default function Hallway({ staircaseType = 'staircase4', wallOpacity = 0.
                 args={[6, 0.2, 5]}
                 position={[0, -0.1, 0]}
                 wallOpacity={wallOpacity}
+                enableTransparencyClick={false}
             />
 
             {/* First floor */}

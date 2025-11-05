@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { Box } from '@react-three/drei'
 
-export default function Wall({ args, position, color = "#ffffff", wallOpacity = 0.2 }) {
+export default function Wall({ args, position, color = "#ffffff", wallOpacity = 0.2, enableTransparencyClick = true }) {
     const [isTransparent, setIsTransparent] = useState(false)
 
     const handleClick = (event) => {
+        if (!enableTransparencyClick) return
         event.stopPropagation()
         setIsTransparent(!isTransparent)
     }
@@ -14,7 +15,7 @@ export default function Wall({ args, position, color = "#ffffff", wallOpacity = 
             args={args}
             position={position}
             castShadow
-            onClick={handleClick}
+            onClick={enableTransparencyClick ? handleClick : undefined}
         >
             {isTransparent ? (
                 <meshStandardMaterial
