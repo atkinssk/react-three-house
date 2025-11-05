@@ -8,7 +8,7 @@ function App() {
   const [controlMode, setControlMode] = useState('orbit')
   const [collisionEnabled, setCollisionEnabled] = useState(true)
   const [opacity, setOpacity] = useState(1)
-  const [staircaseType, setStaircaseType] = useState('staircase2a')
+  const [staircaseType, setStaircaseType] = useState('staircase4')
 
   return (
     <>

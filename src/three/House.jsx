@@ -10,7 +10,7 @@ import Hallway from '../components/hallway/Hallway'
 import Kitchen from '../components/kitchen/Kitchen'
 
 
-export default function House({ opacity = 1, staircaseType = 'staircase2a' }) {
+export default function House({ opacity = 1, staircaseType = 'staircase4' }) {
   const houseRef = useRef()
 
   // Optional subtle rotation animation

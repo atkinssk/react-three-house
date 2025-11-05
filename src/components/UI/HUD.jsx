@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import './HUD.css'
 
-export default function HUD({ controlMode, setControlMode, collisionEnabled, setCollisionEnabled, staircaseType = 'staircase2a', setStaircaseType = () => { } }) {
+export default function HUD({ controlMode, setControlMode, collisionEnabled, setCollisionEnabled, staircaseType = 'staircase4', setStaircaseType = () => { } }) {
   const [isCollapsed, setIsCollapsed] = useState(false)
 
   return (
@@ -54,6 +54,7 @@ export default function HUD({ controlMode, setControlMode, collisionEnabled, set
               className="staircase-select"
               aria-label="Staircase type"
             >
+              <option value="staircase0">No Staircase</option>
               <option value="staircase2a">Staircase 2A</option>
               <option value="staircase2b1">Staircase 2B1</option>
               <option value="staircase2b2">Staircase 2B2</option>
