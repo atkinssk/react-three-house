@@ -4,7 +4,6 @@ import House from '../three/House'
 import Lights from '../three/Lights'
 import Environment from '../three/Environment'
 import WalkControls from '../three/WalkControls'
-import ControlToggle from '../components/UI/ControlToggle'
 import { AxesHelper } from 'three'
 
 const keyboardMap = [
