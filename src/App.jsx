@@ -7,7 +7,7 @@ import TouchControls from './components/UI/TouchControls'
 function App() {
   const [controlMode, setControlMode] = useState('orbit')
   const [collisionEnabled, setCollisionEnabled] = useState(true)
-  const [opacity, setOpacity] = useState(1)
+  const [opacity, setOpacity] = useState(0.2)
   const [staircaseType, setStaircaseType] = useState('staircase4')
 
   return (
@@ -34,8 +34,8 @@ function App() {
         setControlMode={setControlMode}
         collisionEnabled={collisionEnabled}
         setCollisionEnabled={setCollisionEnabled}
-        opacity={opacity}
-        setOpacity={setOpacity}
+        wallOpacity={opacity}
+        setWallOpacity={setOpacity}
         staircaseType={staircaseType}
         setStaircaseType={setStaircaseType}
       />

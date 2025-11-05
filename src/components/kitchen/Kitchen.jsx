@@ -8,7 +8,8 @@ import Worktop from './Worktop'
 export default function Kitchen({
     position = [0, 0, 0],
     floorColor = "#8b7355",
-    wallColor = "#ffffff" }) {
+    wallColor = "#ffffff",
+    wallOpacity = 0.2 }) {
     return (
         <group position={position}>
             {/* Kitchen floor */}
@@ -23,6 +24,7 @@ export default function Kitchen({
                 args={[5.630, 2.4, 0.1]}
                 position={[0, 1.2, 2.15]}
                 color={wallColor}
+                wallOpacity={wallOpacity}
             />
 
             {/* Side wall */}
@@ -30,6 +32,7 @@ export default function Kitchen({
                 args={[0.1, 2.4, 4.2]}
                 position={[-(5.630 / 2) - 0.05, 1.2, 0]}
                 color={wallColor}
+                wallOpacity={wallOpacity}
             />
 
             <IslandUnit position={[1.2, 0, -1]} />

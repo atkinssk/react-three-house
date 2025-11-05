@@ -204,8 +204,8 @@ export default function House({ opacity = 1, staircaseType = 'staircase4' }) {
       <Garden />
       {/* <Walls opacity={opacity} /> */}
       {/* <Roof opacity={opacity} /> */}
-      <Hallway staircaseType={staircaseType} />
-      <Kitchen position={[0, 0, -5]} />
+      <Hallway staircaseType={staircaseType} wallOpacity={opacity} />
+      <Kitchen position={[0, 0, -5]} wallOpacity={opacity} />
 
     </group >
   )

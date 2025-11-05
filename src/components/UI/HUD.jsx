@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import './HUD.css'
 
-export default function HUD({ controlMode, setControlMode, collisionEnabled, setCollisionEnabled, staircaseType = 'staircase4', setStaircaseType = () => { } }) {
+export default function HUD({ controlMode, setControlMode, collisionEnabled, setCollisionEnabled, staircaseType = 'staircase4', setStaircaseType = () => { }, wallOpacity = 0.8, setWallOpacity = () => { } }) {
   const [isCollapsed, setIsCollapsed] = useState(false)
 
   return (
@@ -61,6 +61,21 @@ export default function HUD({ controlMode, setControlMode, collisionEnabled, set
               <option value="staircase3">Staircase 3</option>
               <option value="staircase4">Staircase 4</option>
             </select>
+          </div>
+
+          <div className="opacity-slider">
+            <label className="opacity-label">Wall Transparency:</label>
+            <input
+              type="range"
+              min="0.1"
+              max="0.9"
+              step="0.1"
+              value={1 - wallOpacity}
+              onChange={(e) => setWallOpacity(1 - parseFloat(e.target.value))}
+              className="opacity-range"
+              aria-label="Wall transparency"
+            />
+            <span className="opacity-value">{Math.round((1 - wallOpacity) * 100)}%</span>
           </div>
 
           <div className="instructions">

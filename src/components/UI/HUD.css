@@ -162,3 +162,52 @@
     color: #ff6b6b !important;
     font-weight: bold !important;
 }
+
+.opacit y-slider {
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.opacity-label {
+    font-size: 12px;
+    opacity: 0.9;
+    min-width: 80px;
+}
+
+.opacity-range {
+    flex: 1;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+}
+
+.opacity-range::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #4CAF50;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.opacity-range::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: #4CAF50;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.opacity-value {
+    font-size: 11px;
+    opacity: 0.8;
+    min-width: 30px;
+    text-align: right;
+}

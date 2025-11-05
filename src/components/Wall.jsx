@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Box } from '@react-three/drei'
 
-export default function Wall({ args, position, color = "#ffffff" }) {
+export default function Wall({ args, position, color = "#ffffff", wallOpacity = 0.2 }) {
     const [isTransparent, setIsTransparent] = useState(false)
 
     const handleClick = (event) => {
@@ -20,7 +20,7 @@ export default function Wall({ args, position, color = "#ffffff" }) {
                 <meshStandardMaterial
                     color={color}
                     transparent={true}
-                    opacity={0.8}
+                    opacity={wallOpacity}
                     depthWrite={false}
                     roughness={0.05}
                     metalness={0.0}
