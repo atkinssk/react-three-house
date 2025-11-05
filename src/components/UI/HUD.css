@@ -1,0 +1,164 @@
+.ui-overlay {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    max-width: 300px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.ui-overlay.collapsed {
+    padding: 10px 20px;
+}
+
+.hud-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.hud-header h1 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.collapse-button {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s ease;
+}
+
+.collapse-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+.hud-content {
+    /* Content container styles */
+}
+
+.control-button {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.control-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.control-button:active {
+    transform: translateY(0);
+}
+
+.control-button.orbit-mode {
+    background-color: rgba(76, 175, 80, 0.2);
+    border: 1px solid rgba(76, 175, 80, 0.5);
+}
+
+.control-button.orbit-mode:hover {
+    background-color: rgba(76, 175, 80, 0.3);
+}
+
+.control-button.walk-mode {
+    background-color: rgba(33, 150, 243, 0.2);
+    border: 1px solid rgba(33, 150, 243, 0.5);
+}
+
+.control-button.walk-mode:hover {
+    background-color: rgba(33, 150, 243, 0.3);
+}
+
+.control-button.collision-enabled {
+    background-color: rgba(255, 152, 0, 0.2);
+    border: 1px solid rgba(255, 152, 0, 0.5);
+}
+
+.control-button.collision-enabled:hover {
+    background-color: rgba(255, 152, 0, 0.3);
+}
+
+.control-button.collision-disabled {
+    background-color: rgba(156, 39, 176, 0.2);
+    border: 1px solid rgba(156, 39, 176, 0.5);
+}
+
+.control-button.collision-disabled:hover {
+    background-color: rgba(156, 39, 176, 0.3);
+}
+
+.button-icon {
+    font-size: 16px;
+}
+
+.staircase-selector {
+    margin-top: 12px;
+}
+
+.staircase-label {
+    display: block;
+    font-size: 12px;
+    opacity: 0.9;
+    margin-bottom: 4px;
+}
+
+.staircase-select {
+    padding: 4px 8px;
+    font-size: 12px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    width: 120px;
+}
+
+.staircase-select option {
+    background-color: #333;
+    color: white;
+}
+
+.instructions {
+    margin-top: 16px;
+}
+
+.instructions p {
+    margin: 4px 0;
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+.ghost-mode-warning {
+    color: #ff6b6b !important;
+    font-weight: bold !important;
+}
