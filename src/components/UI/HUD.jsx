@@ -1,7 +1,7 @@
 
 import { useState } from 'react'
 
-export default function HUD({ controlMode, collisionEnabled, staircaseType = 'staircase2a', setStaircaseType = () => { } }) {
+export default function HUD({ controlMode, setControlMode, collisionEnabled, setCollisionEnabled, staircaseType = 'staircase2a', setStaircaseType = () => { } }) {
   const [isCollapsed, setIsCollapsed] = useState(false)
 
   return (
@@ -19,6 +19,96 @@ export default function HUD({ controlMode, collisionEnabled, staircaseType = 'st
 
       {!isCollapsed && (
         <div className="hud-content">
+          <div style={{ marginBottom: 16 }}>
+            <button
+              onClick={() => setControlMode(controlMode === 'orbit' ? 'walk' : 'orbit')}
+              style={{
+                padding: '10px 20px',
+                fontSize: 14,
+                fontWeight: '500',
+                backgroundColor: controlMode === 'orbit' ? 'rgba(76, 175, 80, 0.2)' : 'rgba(33, 150, 243, 0.2)',
+                color: 'white',
+                border: `1px solid ${controlMode === 'orbit' ? 'rgba(76, 175, 80, 0.5)' : 'rgba(33, 150, 243, 0.5)'}`,
+                borderRadius: '6px',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                width: '100%',
+                textAlign: 'center',
+                boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
+                backdropFilter: 'blur(10px)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.backgroundColor = controlMode === 'orbit' ? 'rgba(76, 175, 80, 0.3)' : 'rgba(33, 150, 243, 0.3)'
+                e.target.style.transform = 'translateY(-1px)'
+                e.target.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.3)'
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.backgroundColor = controlMode === 'orbit' ? 'rgba(76, 175, 80, 0.2)' : 'rgba(33, 150, 243, 0.2)'
+                e.target.style.transform = 'translateY(0)'
+                e.target.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.2)'
+              }}
+              onMouseDown={(e) => {
+                e.target.style.transform = 'translateY(0)'
+              }}
+            >
+              <span style={{ fontSize: '16px' }}>
+                {controlMode === 'orbit' ? '🚶' : '🔄'}
+              </span>
+              <span>
+                {controlMode === 'orbit' ? 'Switch to Walk Mode' : 'Switch to Orbit Mode'}
+              </span>
+            </button>
+          </div>
+          {controlMode === 'walk' && (
+            <div style={{ marginBottom: 16 }}>
+              <button
+                onClick={() => setCollisionEnabled(!collisionEnabled)}
+                style={{
+                  padding: '10px 20px',
+                  fontSize: 14,
+                  fontWeight: '500',
+                  backgroundColor: collisionEnabled ? 'rgba(255, 152, 0, 0.2)' : 'rgba(156, 39, 176, 0.2)',
+                  color: 'white',
+                  border: `1px solid ${collisionEnabled ? 'rgba(255, 152, 0, 0.5)' : 'rgba(156, 39, 176, 0.5)'}`,
+                  borderRadius: '6px',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  width: '100%',
+                  textAlign: 'center',
+                  boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
+                  backdropFilter: 'blur(10px)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.backgroundColor = collisionEnabled ? 'rgba(255, 152, 0, 0.3)' : 'rgba(156, 39, 176, 0.3)'
+                  e.target.style.transform = 'translateY(-1px)'
+                  e.target.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.3)'
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.backgroundColor = collisionEnabled ? 'rgba(255, 152, 0, 0.2)' : 'rgba(156, 39, 176, 0.2)'
+                  e.target.style.transform = 'translateY(0)'
+                  e.target.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.2)'
+                }}
+                onMouseDown={(e) => {
+                  e.target.style.transform = 'translateY(0)'
+                }}
+              >
+                <span style={{ fontSize: '16px' }}>
+                  {collisionEnabled ? '🚧' : '👻'}
+                </span>
+                <span>
+                  {collisionEnabled ? 'Collision: ON' : 'Collision: OFF (Ghost Mode)'}
+                </span>
+              </button>
+            </div>
+          )}
           <div style={{ marginTop: 12 }}>
             <label style={{ display: 'block', fontSize: 12, opacity: 0.9, marginBottom: 4 }}>Staircase type:</label>
             <select

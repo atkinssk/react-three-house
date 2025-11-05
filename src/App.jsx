@@ -1,9 +1,7 @@
 import { Suspense, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import Experience from './components/Experience'
-import UI from './components/UI/HUD'
-import ControlToggle from './components/UI/ControlToggle'
-import CollisionToggle from './components/UI/CollisionToggle'
+import HUD from './components/UI/HUD'
 import TouchControls from './components/UI/TouchControls'
 
 function App() {
@@ -31,21 +29,16 @@ function App() {
           />
         </Suspense>
       </Canvas>
-      <UI
+      <HUD
         controlMode={controlMode}
+        setControlMode={setControlMode}
         collisionEnabled={collisionEnabled}
+        setCollisionEnabled={setCollisionEnabled}
         opacity={opacity}
         setOpacity={setOpacity}
         staircaseType={staircaseType}
         setStaircaseType={setStaircaseType}
       />
-      <ControlToggle controlMode={controlMode} setControlMode={setControlMode} />
-      {controlMode === 'walk' && (
-        <CollisionToggle
-          collisionEnabled={collisionEnabled}
-          setCollisionEnabled={setCollisionEnabled}
-        />
-      )}
       <TouchControls controlMode={controlMode} />
     </>
   )
