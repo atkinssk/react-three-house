@@ -12,16 +12,19 @@ export default function Hallway({ staircaseType = 'staircase4', wallOpacity = 0.
             <Floor
                 args={[6, 0.2, 5]}
                 position={[0, -0.1, 0]}
+                wallOpacity={wallOpacity}
             />
 
             {/* First floor */}
             <Floor
                 args={[3, 0.2, 1.470]}
                 position={[-1, 2.970 - 0.1, -1.470 / 2]}
+                wallOpacity={wallOpacity}
             />
             <Floor
                 args={[1, 0.2, 3.4]}
                 position={[1, 2.970 - 0.1, 0.5 / 2]}
+                wallOpacity={wallOpacity}
             />
 
             <GlassPane args={[3, 3, 0.1]} position={[-1, 1.5, 2]} />
