@@ -8,6 +8,7 @@ import Chair from '../components/Chair'
 import Garden from '../components/Garden'
 import Hallway from '../components/hallway/Hallway'
 import Kitchen from '../components/kitchen/Kitchen'
+import Stairs from './Stairs'
 
 
 export default function House({ opacity = 1, staircaseType = 'staircase4' }) {
@@ -192,21 +193,18 @@ export default function House({ opacity = 1, staircaseType = 'staircase4' }) {
     </>;
   }
 
-
-
-
-
-
-
-
   return (
     <group ref={houseRef} position={[0, 0, 0]}>
       <Garden />
       {/* <Walls opacity={opacity} /> */}
       {/* <Roof opacity={opacity} /> */}
-      <Hallway staircaseType={staircaseType} wallOpacity={opacity} />
-      <Kitchen position={[0, 0, -5]} wallOpacity={opacity} />
+      {staircaseType == 'blender' ? <Stairs /> :
+        <>
+          <Hallway staircaseType={staircaseType} wallOpacity={opacity} />
+          <Kitchen position={[0, 0, -5]} wallOpacity={opacity} />
+        </>
 
+      }
     </group >
   )
 }

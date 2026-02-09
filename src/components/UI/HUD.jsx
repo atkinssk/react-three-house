@@ -60,6 +60,7 @@ export default function HUD({ controlMode, setControlMode, collisionEnabled, set
               <option value="staircase2b2">Staircase 2B2</option>
               <option value="staircase3">Staircase 3</option>
               <option value="staircase4">Staircase 4</option>
+              <option value="blender">Blender</option>
             </select>
           </div>
 
